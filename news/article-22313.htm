@@ -1,0 +1,184 @@
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freequantumultx.github.io/news/article-22313.htm" />
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>纯JS 全屏滚动 / 整屏翻页</title>
+        <meta name="description" content="###在线演示http://ftp592347.host584.zhujiwu.me/js-fullpage/index.html ###知识点总结  当需要制作转动鼠标滚轮放大页面字体这样的交互效果" />
+        <link rel="icon" href="__ADDON__/img/freequantumultx/favicon.ico" type="image/x-icon"/>
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/style.css">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LX9T7GC1HS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LX9T7GC1HS');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="singleBlogPage">
+            <!-- site-navigation start -->
+    <nav id="mainNavigation" class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar logo -->
+                <div class="navbar-brand">
+                                        <a href="/">
+                        <span>Free Quantumult X</span>
+                    </a>
+                                    </div>
+                <!-- navbar logo -->
+            </div><!-- /.navbar-header -->
+            <!-- nav links -->
+            <div class="collapse navbar-collapse" id="main-nav-collapse">
+                <ul class="nav navbar-nav navbar-right text-uppercase">
+                                        <li>
+                        <a href="/">首页</a>
+                    </li>
+                                        <li>
+                        <a href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li>
+                        <a href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li>
+                        <a href="/news/">新闻资讯</a>
+                    </li>
+                                        <li>
+                        <a href="#">关于</a>
+                    </li>
+                    <li>
+                        <a href="#">联系</a>
+                    </li>
+                </ul>
+            </div><!-- nav links -->
+        </div><!-- /.container -->
+    </nav>
+        <!-- header begin -->
+        <header class="page-head">
+            <div class="header-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ol class="breadcrumb">
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/news/">新闻资讯</a></li>
+                                <li class="active">正文</li>
+                            </ol> <!-- end of /.breadcrumb -->
+                        </div>
+                    </div>
+                </div> <!-- /.container -->
+            </div> <!-- /.header-wrapper -->
+        </header> <!-- /.page-head -->
+        <!-- header end -->
+        <!-- start: about us section -->
+        <section id="about">
+            <div class="container">
+                <div class="about-info">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h1 class="mb-2">纯JS 全屏滚动 / 整屏翻页</h1>
+                                              				  				  				<div id="content_views" class="markdown_views prism-atelier-sulphurpool-light"> <p>###在线演示<br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://ftp592347.host584.zhujiwu.me/js-fullpage/index.html"  rel="nofollow">http://ftp592347.host584.zhujiwu.me/js-fullpage/index.html</a><br /> ###知识点总结</p> <ol> <li>当需要制作转动鼠标滚轮放大页面字体这样的交互效果时，会用到 Mousewheel 事件。其实在大多数浏览器（IE6, IE7, IE8, Opera 10+, Safari 5+）中，都提供了 “mousewheel” 事件。但杯具的是 Firefox 3.5+ 却不支持此事件，不过庆幸 Firefox 3.5+ 中提供了另外一个等同的事件：”DOMMouseScroll”</li> <li>mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动；</li> <li>DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动<br /> 这个适用于pc，移动端代码见https://blog.csdn.net/tangdou5682/article/details/93754333，利用touch事件与scrollTo</li> </ol> <p>###html代码</p> <pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>wrap<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> 	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>main<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span> 		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>page1<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>page<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span> 		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>page2<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>page<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span> 		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>page3<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>page<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span> 		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>page4<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>page<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span> 	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span> </code></pre> <p>###css</p> <pre><code class="prism language-css"><span class="token selector">&lt;style type="text/css"&gt; html,body</span><span class="token punctuation">{<!-- --></span> 	<span class="token property">height</span><span class="token punctuation">:</span>100%<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token selector">body,ul,li,a,p,div</span><span class="token punctuation">{<!-- --></span><span class="token property">padding</span><span class="token punctuation">:</span>0px<span class="token punctuation">;</span> <span class="token property">margin</span><span class="token punctuation">:</span>0px<span class="token punctuation">;</span> <span class="token property">font-size</span><span class="token punctuation">:</span>14px<span class="token punctuation">;</span><span class="token punctuation">}</span> <span class="token selector">#wrap</span><span class="token punctuation">{<!-- --></span> 	<span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span> 	<span class="token property">width</span><span class="token punctuation">:</span>100%<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token selector">#main</span><span class="token punctuation">{<!-- --></span> 	<span class="token property">height</span><span class="token punctuation">:</span>2944px<span class="token punctuation">;</span> 	<span class="token property">top</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span> 	<span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token selector">.page</span><span class="token punctuation">{<!-- --></span> 	<span class="token property">width</span><span class="token punctuation">:</span>100%<span class="token punctuation">;</span> 	<span class="token property">margin</span><span class="token punctuation">:</span>0<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token selector">#page1</span><span class="token punctuation">{<!-- --></span> 	<span class="token property">background</span><span class="token punctuation">:</span>#E4E6CE<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token selector">#page2</span><span class="token punctuation">{<!-- --></span> 	<span class="token property">background</span><span class="token punctuation">:</span>#6CE26C<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token selector">#page3</span><span class="token punctuation">{<!-- --></span> 	<span class="token property">background</span><span class="token punctuation">:</span>#BF4938<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token selector">#page4</span><span class="token punctuation">{<!-- --></span> 	<span class="token property">background</span><span class="token punctuation">:</span>#2932E1<span class="token punctuation">;</span> <span class="token punctuation">}</span> &lt;/style&gt; </code></pre> <p>###javascritpt</p> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span><span class="token operator">&gt;</span>     <span class="token keyword">var</span> wrap <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"wrap"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token keyword">var</span> main <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"main"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token keyword">var</span> hei <span class="token operator">=</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>clientHeight<span class="token punctuation">;</span> 	wrap<span class="token punctuation">.</span>style<span class="token punctuation">.</span>height <span class="token operator">=</span> hei <span class="token operator">+</span> <span class="token string">"px"</span><span class="token punctuation">;</span> 	<span class="token keyword">var</span> obj <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">"div"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>obj<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 		<span class="token keyword">if</span><span class="token punctuation">(</span>obj<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>className <span class="token operator">==</span> <span class="token string">'page'</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 			 obj<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>height <span class="token operator">=</span> hei <span class="token operator">+</span> <span class="token string">"px"</span><span class="token punctuation">;</span> 		<span class="token punctuation">}</span> 	<span class="token punctuation">}</span> 	<span class="token comment">//如果不加时间控制，滚动会过度灵敏，一次翻好几屏</span> 	<span class="token keyword">var</span> startTime <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token comment">//翻屏起始时间  </span>         endTime <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>           now <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>          <span class="token comment">//浏览器兼容      </span>     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>navigator<span class="token punctuation">.</span>userAgent<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">"firefox"</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>            document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"DOMMouseScroll"</span><span class="token punctuation">,</span>scrollFun<span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token punctuation">}</span>       <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>document<span class="token punctuation">.</span>addEventListener<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>           document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"mousewheel"</span><span class="token punctuation">,</span>scrollFun<span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token punctuation">}</span>       <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>document<span class="token punctuation">.</span>attachEvent<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>           document<span class="token punctuation">.</span><span class="token function">attachEvent</span><span class="token punctuation">(</span><span class="token string">"onmousewheel"</span><span class="token punctuation">,</span>scrollFun<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token punctuation">}</span>       <span class="token keyword">else</span><span class="token punctuation">{<!-- --></span>           document<span class="token punctuation">.</span>onmousewheel <span class="token operator">=</span> scrollFun<span class="token punctuation">;</span>       <span class="token punctuation">}</span>            <span class="token comment">//滚动事件处理函数</span>     <span class="token keyword">function</span> <span class="token function">scrollFun</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>     	startTime <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       	<span class="token keyword">var</span> delta <span class="token operator">=</span> event<span class="token punctuation">.</span>detail <span class="token operator">||</span> <span class="token punctuation">(</span><span class="token operator">-</span>event<span class="token punctuation">.</span>wheelDelta<span class="token punctuation">)</span><span class="token punctuation">;</span>       	<span class="token comment">//mousewheel事件中的 “event.wheelDelta” 属性值：返回的如果是正值说明滚轮是向上滚动</span>     	<span class="token comment">//DOMMouseScroll事件中的 “event.detail” 属性值：返回的如果是负值说明滚轮是向上滚动</span>     	<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>endTime <span class="token operator">-</span> startTime<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token operator">-</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>     		<span class="token keyword">if</span><span class="token punctuation">(</span>delta<span class="token operator">&gt;</span><span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>main<span class="token punctuation">.</span>offsetTop<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token operator">-</span><span class="token punctuation">(</span>hei<span class="token operator">*</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>     			<span class="token comment">//向下滚动</span>     			now <span class="token operator">=</span> now <span class="token operator">-</span> hei<span class="token punctuation">;</span>     			<span class="token function">toPage</span><span class="token punctuation">(</span>now<span class="token punctuation">)</span><span class="token punctuation">;</span>     	<span class="token punctuation">}</span>  	    	<span class="token keyword">if</span><span class="token punctuation">(</span>delta<span class="token operator">&lt;</span><span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>main<span class="token punctuation">.</span>offsetTop<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 	    		<span class="token comment">//向上滚动</span> 	    			now <span class="token operator">=</span> now <span class="token operator">+</span> hei<span class="token punctuation">;</span> 	    			<span class="token function">toPage</span><span class="token punctuation">(</span>now<span class="token punctuation">)</span><span class="token punctuation">;</span> 	   		<span class="token punctuation">}</span> 	   		 endTime <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       	<span class="token punctuation">}</span>     	   <span class="token keyword">else</span><span class="token punctuation">{<!-- --></span>                   event<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                 <span class="token punctuation">}</span>         <span class="token punctuation">}</span>      <span class="token keyword">function</span> <span class="token function">toPage</span><span class="token punctuation">(</span>now<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>                  <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#main"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">animate</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>top<span class="token punctuation">:</span><span class="token punctuation">(</span>now<span class="token operator">+</span><span class="token string">'px'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">//jquery实现动画效果</span>          <span class="token comment">//setTimeout("main.style.top = now + 'px'",1000);     javascript 实现动画效果</span>     <span class="token punctuation">}</span>    <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span> </code></pre> <p>请认真看注释和知识点，有什么问题或建议，欢迎留言<sup>V</sup></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-21849.htm">开设动物诊所条件（开设动物医院的条件有哪些?）</a></p>
+                                        <p>下一个：<a href="/news/article-22314.htm">宠物粮食销售好做吗现在还能做吗 宠物粮食销售好做吗现在还能做吗知乎</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-20478.htm" title="珍珠粉哪种品牌比较好(食用珍珠粉哪个品牌最可靠)">珍珠粉哪种品牌比较好(食用珍珠粉哪个品牌最可靠)</a></li>
+                        <li class="py-2"><a href="/news/article-21403.htm" title="我所在的城市有一家宠物医院英语翻译 我所在的城市有一家宠物医院英语翻译">我所在的城市有一家宠物医院英语翻译 我所在的城市有一家宠物医院英语翻译</a></li>
+                        <li class="py-2"><a href="/news/article-21402.htm" title="投资医美要多少钱（投资 医美）">投资医美要多少钱（投资 医美）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-6-latest-quantumult-x-node.htm" title="9月6日→22M/S|2024年最新免费节点Free QuantumultX订阅链接地址">9月6日→22M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-high-speed-nodes.htm" title="12月5日→19.5M/S|2024年最新免费节点Free QuantumultX订阅链接地址">12月5日→19.5M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-quantumult-x-node.htm" title="10月10日→19.3M/S|2024年最新免费节点Free QuantumultX订阅链接地址">10月10日→19.3M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-27-free-quantumult-x-node.htm" title="9月27日→21.1M/S|2024年最新免费节点Free QuantumultX订阅链接地址">9月27日→21.1M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-free-node-subscribe-links.htm" title="12月7日→21.4M/S|2024年最新免费节点Free QuantumultX订阅链接地址">12月7日→21.4M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-7-free-high-speed-nodes.htm" title="9月7日→20.3M/S|2024年最新免费节点Free QuantumultX订阅链接地址">9月7日→20.3M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-free-node-subscribe.htm" title="11月18日→19.3M/S|2024年最新免费节点Free QuantumultX订阅链接地址">11月18日→19.3M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                </div><!-- /.about-info -->
+            </div>
+        </section> <!-- /#about -->
+        <!-- end: about us section-->
+                <!-- start: footer -->
+        <footer class="text-uppercase">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <p>
+                            <a href="/">Free QuantumultX节点订阅官网</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end: footer -->
+        <!--  Necessary scripts  -->
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/smooth-scroll.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/owl.carousel.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/contact.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/script.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>
