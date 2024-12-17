@@ -1,0 +1,183 @@
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freequantumultx.github.io/news/article-26949.htm" />
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>vue使用store</title>
+        <meta name="description" content="vue使用store，我的通俗理解是store里的是全局变量，只要改变变量后，其他页面在次使用，获取到的就是改变后的值。 src下创建store文件夹index.js import Vue from " />
+        <link rel="icon" href="/assets/website/img/freequantumultx/favicon.ico" type="image/x-icon"/>
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LX9T7GC1HS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LX9T7GC1HS');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="singleBlogPage">
+            <!-- site-navigation start -->
+    <nav id="mainNavigation" class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar logo -->
+                <div class="navbar-brand">
+                                        <a href="/">
+                        <span>Free Quantumult X</span>
+                    </a>
+                                    </div>
+                <!-- navbar logo -->
+            </div><!-- /.navbar-header -->
+            <!-- nav links -->
+            <div class="collapse navbar-collapse" id="main-nav-collapse">
+                <ul class="nav navbar-nav navbar-right text-uppercase">
+                                        <li>
+                        <a href="/">首页</a>
+                    </li>
+                                        <li>
+                        <a href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li>
+                        <a href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li>
+                        <a href="/news/">新闻资讯</a>
+                    </li>
+                                        <li>
+                        <a href="#">关于</a>
+                    </li>
+                    <li>
+                        <a href="#">联系</a>
+                    </li>
+                </ul>
+            </div><!-- nav links -->
+        </div><!-- /.container -->
+    </nav>
+        <!-- header begin -->
+        <header class="page-head">
+            <div class="header-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ol class="breadcrumb">
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/news/">新闻资讯</a></li>
+                                <li class="active">正文</li>
+                            </ol> <!-- end of /.breadcrumb -->
+                        </div>
+                    </div>
+                </div> <!-- /.container -->
+            </div> <!-- /.header-wrapper -->
+        </header> <!-- /.page-head -->
+        <!-- header end -->
+        <!-- start: about us section -->
+        <section id="about">
+            <div class="container">
+                <div class="about-info">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h1 class="mb-2">vue使用store</h1>
+                                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>vue使用store，我的通俗理解是store里的是全局变量，只要改变变量后，其他页面在次使用，获取到的就是改变后的值。<br /> src下创建store文件夹<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230223/3a519b84a188abd3f1186f24f8508915.jpg" alt="vue使用store"><br /><strong>index.js</strong></p> <pre><code class="prism language-js"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span> <span class="token keyword">import</span> Vuex <span class="token keyword">from</span> <span class="token string">'vuex'</span> Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Vuex<span class="token punctuation">)</span> <span class="token keyword">const</span> state <span class="token operator">=</span><span class="token punctuation">{<!-- --></span>   userinfo<span class="token punctuation">:</span> <span class="token string">'lin'</span><span class="token punctuation">,</span> <span class="token punctuation">}</span> <span class="token keyword">const</span> getters <span class="token operator">=</span><span class="token punctuation">{<!-- --></span>   get_userinfo<span class="token punctuation">:</span>state<span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span>     <span class="token keyword">let</span> userinfo <span class="token operator">=</span> state<span class="token punctuation">.</span>userinfo     <span class="token keyword">return</span> userinfo   <span class="token punctuation">}</span> <span class="token punctuation">}</span> <span class="token keyword">const</span> mutations <span class="token operator">=</span><span class="token punctuation">{<!-- --></span>   <span class="token function">set_userinfo</span> <span class="token punctuation">(</span>state<span class="token punctuation">,</span> data<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     state<span class="token punctuation">.</span>userinfo <span class="token operator">=</span> data     localStorage<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span><span class="token string">'userinfo'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">}</span> <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>   getters<span class="token punctuation">,</span>   state<span class="token punctuation">,</span>   mutations <span class="token punctuation">}</span><span class="token punctuation">)</span> </code></pre> <p>这里要装vuex，安装命令：<strong>npm install --save vuex</strong><br /> 引入<br /><strong>main.js</strong></p> <pre><code class="prism language-js"><span class="token keyword">import</span> store <span class="token keyword">from</span> <span class="token string">'./store'</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>   el<span class="token punctuation">:</span> <span class="token string">'#app'</span><span class="token punctuation">,</span>   router<span class="token punctuation">,</span>   store<span class="token punctuation">,</span>   <span class="token operator">...</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> </code></pre> <p>获取userinfo: ‘lin’,</p> <pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>   <span class="token comment">&lt;!-- 这里的get_userinfo要和store/index.js里的getters下的get_userinfo一致 --&gt;</span>   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>{<!-- -->{$store.getters.get_userinfo}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"> <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{<!-- --></span>   name<span class="token punctuation">:</span> <span class="token string">'My'</span><span class="token punctuation">,</span>   <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">return</span> <span class="token punctuation">{<!-- --></span>       <span class="token comment">//data里的用法 this.$store.getters.get_userinfo</span>       msg<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>getters<span class="token punctuation">.</span>get_userinfo     <span class="token punctuation">}</span>   <span class="token punctuation">}</span><span class="token punctuation">,</span>   <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>     <span class="token comment">//读取全局变量</span>     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>getters<span class="token punctuation">.</span>get_userinfo<span class="token punctuation">)</span>     <span class="token comment">//修改全局变量 修改要用commit 然后commit(key,value) key是名，要和mutations下的set_userinfo一致 value是修改的值</span>     <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'set_userinfo'</span><span class="token punctuation">,</span><span class="token string">'wu'</span><span class="token punctuation">)</span>     <span class="token comment">//在一次获取，就变成wu</span>     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>getters<span class="token punctuation">.</span>get_userinfo<span class="token punctuation">)</span><span class="token comment">//输出'wu'</span>   <span class="token punctuation">}</span> <span class="token punctuation">}</span> </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span> </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-26479.htm">狂犬疫苗从动物提取的和人体提取的有何区别（狂犬疫苗从动物提取的和人体提取的有何区别呢）</a></p>
+                                        <p>下一个：<a href="/news/article-26950.htm">猫咪三针疫苗间隔时间（猫咪三针疫苗间隔多久）</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-24619.htm" title="新疆宠物医院（新疆宠物医院电话号码）">新疆宠物医院（新疆宠物医院电话号码）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-28-free-subscribe-node.htm" title="9月28日→20.3M/S|2024年最新免费节点Free QuantumultX订阅链接地址">9月28日→20.3M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-quantumult-x-node.htm" title="11月24日→22.8M/S|2024年最新免费节点Free QuantumultX订阅链接地址">11月24日→22.8M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-quantumult-x-node-share.htm" title="11月28日→20.3M/S|2024年最新免费节点Free QuantumultX订阅链接地址">11月28日→20.3M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-25083.htm" title="广州宠物领养中心具体地址电话号码（广州市宠物领养中心）">广州宠物领养中心具体地址电话号码（广州市宠物领养中心）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-free-node-subscribe-links.htm" title="11月25日→21.8M/S|2024年最新免费节点Free QuantumultX订阅链接地址">11月25日→21.8M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-20939.htm" title="如果被野猫抓伤了只是流了一点点血会怎样?（被野猫抓出一点点血）">如果被野猫抓伤了只是流了一点点血会怎样?（被野猫抓出一点点血）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-free-subscribe-node.htm" title="11月10日→21.9M/S|2024年最新免费节点Free QuantumultX订阅链接地址">11月10日→21.9M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-8-free-node-subscribe.htm" title="9月8日→22.7M/S|2024年最新免费节点Free QuantumultX订阅链接地址">9月8日→22.7M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-quantumult-x-github.htm" title="11月13日→19.1M/S|2024年最新免费节点Free QuantumultX订阅链接地址">11月13日→19.1M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                </div><!-- /.about-info -->
+            </div>
+        </section> <!-- /#about -->
+        <!-- end: about us section-->
+                <!-- start: footer -->
+        <footer class="text-uppercase">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <p>
+                            <a href="/">Free QuantumultX节点订阅官网</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end: footer -->
+        <!--  Necessary scripts  -->
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/smooth-scroll.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/owl.carousel.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/contact.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/script.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>
