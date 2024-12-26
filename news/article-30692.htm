@@ -1,0 +1,193 @@
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freequantumultx.github.io/news/article-30692.htm" />
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>这些OAuth2客户端的认证方式你未必了解</title>
+        <meta name="description" content="OAuth2客户端按照它们与授权服务器进行安全认证的能力可以分为机密类型（Confidential）和公共类型（Public）。 机密类型的自身会有个密码凭据，比如Web服务器后端程序；而公共类型则没" />
+        <link rel="icon" href="/assets/website/img/freequantumultx/favicon.ico" type="image/x-icon"/>
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LX9T7GC1HS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LX9T7GC1HS');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="singleBlogPage">
+            <!-- site-navigation start -->
+    <nav id="mainNavigation" class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar logo -->
+                <div class="navbar-brand">
+                                        <a href="/">
+                        <span>Free Quantumult X</span>
+                    </a>
+                                    </div>
+                <!-- navbar logo -->
+            </div><!-- /.navbar-header -->
+            <!-- nav links -->
+            <div class="collapse navbar-collapse" id="main-nav-collapse">
+                <ul class="nav navbar-nav navbar-right text-uppercase">
+                                        <li>
+                        <a href="/">首页</a>
+                    </li>
+                                        <li>
+                        <a href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li>
+                        <a href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li>
+                        <a href="/news/">新闻资讯</a>
+                    </li>
+                                        <li>
+                        <a href="#">关于</a>
+                    </li>
+                    <li>
+                        <a href="#">联系</a>
+                    </li>
+                </ul>
+            </div><!-- nav links -->
+        </div><!-- /.container -->
+    </nav>
+        <!-- header begin -->
+        <header class="page-head">
+            <div class="header-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ol class="breadcrumb">
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/news/">新闻资讯</a></li>
+                                <li class="active">正文</li>
+                            </ol> <!-- end of /.breadcrumb -->
+                        </div>
+                    </div>
+                </div> <!-- /.container -->
+            </div> <!-- /.header-wrapper -->
+        </header> <!-- /.page-head -->
+        <!-- header end -->
+        <!-- start: about us section -->
+        <section id="about">
+            <div class="container">
+                <div class="about-info">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h1 class="mb-2">这些OAuth2客户端的认证方式你未必了解</h1>
+                                            <input type="hidden" id="share-website-info" data-name="QuantumultX Node(圈X)官方节点站" data-url="https://quantumultxnode.github.io">
+                  				  				  				<p><strong>OAuth2</strong>客户端按照它们与授权服务器进行安全认证的能力可以分为机密类型（<strong>Confidential</strong>）和公共类型（<strong>Public</strong>）。</p> <p>机密类型的自身会有个密码凭据，比如Web服务器后端程序；而公共类型则没有密码凭据，纯浏览器前端应用或者移动客户端应用大都属于这一种类型。不管是哪一种，它们都有客户端ID（<strong>client_id</strong>）。</p> <h3 id="oauth2客户端认证">OAuth2客户端认证</h3> <p>客户端在执行<strong>OAuth2</strong>授权的敏感流程中（<strong>相关的流程有令牌请求、令牌自省请求、令牌撤销请求</strong>）必须使用授权服务器进行客户端身份验证，确保客户端中途不会被调包。</p> <h3 id="客户端认证方式">客户端认证方式</h3> <p>目前客户端认证的方式有以下几种:</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/2fac7ae488d49f35ac7813d93c7cca33.jpg" alt="这些OAuth2客户端的认证方式你未必了解"></p> <p>前面<strong>Gitee</strong>的<strong>DEMO</strong>使用的是过时的<strong>POST</strong>方式；微信DEMO使用的是非<strong>OAuth2</strong>标准的方式；<strong>Spring Authorization Server</strong>目前相关的<strong>DEMO</strong>使用的是<strong>client_secret_basic</strong>方式。剩下的方式中<strong>client_secret_jwt</strong>和<strong>private_key_jwt</strong>用的比较多，这两种方式可以很好地保护客户端的认证信息，安全性更高。<strong>Spring Security</strong>和<strong>Spring Authorization Server</strong>目前已经支持这两种方式。</p> <h4 id="client_secret_jwt">client_secret_jwt</h4> <p><code>client_secret_jwt</code>方式是<strong>OAuth2</strong>客户端将自己的密钥作为<code>HmacSHA256</code>算法的<strong>key</strong>生成<code>SecretKey</code>：</p> <pre><code class="language-java">byte[] pin = clientSecret.getBytes(StandardCharsets.UTF_8); SecretKeySpec  secretKey = new SecretKeySpec(pin,"HmacSHA256");</code></pre> <p>然后通过<code>SecretKey</code>生成一个携带<strong>OAuth2</strong>客户端信息的<strong>JWT</strong>，在授权码请求<strong>Token</strong>环节携带该<strong>JWT</strong>以便授权服务器进行客户端认证，请求的报文为:</p> <pre><code class="language-http">     POST /oauth2/token HTTP/1.1      Host: oauth2_client.felord.cn      Content-Type: application/x-www-form-urlencoded       grant_type=authorization_code&amp;      code=n0esc3NRze7LTCu7iYzS6a5acc3f0ogp4&amp;      client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&amp;      client_assertion=你的JWT</code></pre> <p>授权服务器收到请求后通过<strong>OAuth2</strong>客户端的<code>client_secret</code>对<strong>JWT</strong>进行解码校验以认证客户端。这种方式能很好的保护<code>client_secret</code>在非<strong>HTTPS</strong>环境下的传输。</p> <blockquote> <p>这里OAuth2客户端的密钥（<strong>client_secret</strong>）比特长度必须大于等于<strong>256</strong>。</p> </blockquote> <h4 id="private_key_jwt">private_key_jwt</h4> <p><code>private_key_jwt</code>和<code>client_secret_jwt</code>唯一的区别就是生成<strong>JWT</strong>的方式不同。通过这种方式，<strong>OAuth2</strong>客户端已经不需要<code>client_secret</code>，只需要配置一对<code>RSA</code>或者<code>EC</code>密钥，通过密钥来生成<strong>JWT</strong>，另外还需要向授权服务器提供公钥，通常是一个<strong>jwkSetUrl</strong>。该方式的细节已经在<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/qq_35067322/category_11691173.html"  target="_blank" rel="nofollow">OAuth2专栏</a>中<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://felord.blog.csdn.net/article/details/123540550"  target="_blank" rel="nofollow">JOSE规范</a>一文中进行过详细说明了，这里不再赘述。这种方式让客户端的认证信息更加安全的传输，是我个人比较喜欢的方式。</p> <h4 id="tls_client_auth">tls_client_auth</h4> <p>这个比较高级，嵌入了TLS安全层，在HTTP协议级别来认证<strong>OAuth2</strong>客户端，它涉及的证书来自可信任的<strong>CA</strong>。这种方式基本脱离了应用层，是一种无侵入的方式。</p> <h4 id="self_signed_tls_client_auth">self_signed_tls_client_auth</h4> <p>这个同样也是在TLS安全层，不过它使用了自签名的<strong>X.509</strong>证书。</p> <h3 id="总结">总结</h3> <p>市面上的教程大多只会提到过时的<s>POST</s>方式以及<strong>client_secret_basic</strong>和<strong>client_secret_post</strong>方式，对后面的五种则很少涉及，胖哥已经对<strong>private_key_jwt</strong>和<strong>client_secret_jwt</strong>进行了实现，详细请订阅我的<strong>Spring Security OAuth2</strong>专栏。这些OAuth2客户端认证方式在不同的场景有不同的优势，你可以根据不同的安全级别选择不同的<strong>OAuth2</strong>客户端认证方式。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-30691.htm">JS脚本按顺序依次加载执行</a></p>
+                                        <p>下一个：<a href="/news/article-31144.htm">CPF 使用C#的Native AOT 发布程序</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-22772.htm" title="猫咪三针疫苗间隔必须按规定时间吗多久（猫咪三针疫苗间隔必须按规定时间吗多久打）">猫咪三针疫苗间隔必须按规定时间吗多久（猫咪三针疫苗间隔必须按规定时间吗多久打）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-7-latest-quantumult-x-node.htm" title="10月7日→19.9M/S|2024年最新免费节点Free QuantumultX订阅链接地址">10月7日→19.9M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-24151.htm" title="收养协议怎么写才合法（收养协议的效力）">收养协议怎么写才合法（收养协议的效力）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-14-quantumult-x-node-windows.htm" title="10月14日→19.2M/S|2024年最新免费节点Free QuantumultX订阅链接地址">10月14日→19.2M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-18681.htm" title="流浪猫养多久才不会跑（流浪猫养多久才不会跑来跑去）">流浪猫养多久才不会跑（流浪猫养多久才不会跑来跑去）</a></li>
+                        <li class="py-2"><a href="/news/article-24620.htm" title="穷人养殖业什么最稳 穷人养殖业什么最稳新手养鹅">穷人养殖业什么最稳 穷人养殖业什么最稳新手养鹅</a></li>
+                        <li class="py-2"><a href="/news/article-19560.htm" title="附近免费领养小猫小狗 附近免费领养小猫小狗的地方">附近免费领养小猫小狗 附近免费领养小猫小狗的地方</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-free-node-subscribe-links.htm" title="11月14日→19.7M/S|2024年最新免费节点Free QuantumultX订阅链接地址">11月14日→19.7M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-30-free-subscribe-node.htm" title="10月30日→18.9M/S|2024年最新免费节点Free QuantumultX订阅链接地址">10月30日→18.9M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-free-node-subscribe-links.htm" title="12月7日→21.4M/S|2024年最新免费节点Free QuantumultX订阅链接地址">12月7日→21.4M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                </div><!-- /.about-info -->
+            </div>
+        </section> <!-- /#about -->
+        <!-- end: about us section-->
+                <!-- start: footer -->
+        <footer class="text-uppercase">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Free QuantumultX节点订阅官网</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end: footer -->
+        <!--  Necessary scripts  -->
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/smooth-scroll.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/owl.carousel.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/contact.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/script.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freequantumultx.github.io/news/article-31144.htm" />
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CPF 使用C#的Native AOT 发布程序</title>
+        <meta name="description" content="微软已经将AOT的包移到Nuget了，之前是在实验测试服务器上的。并且由之前的alpha版本改成了preview版本。 C#的开发效率，接近C++的运行效率，而且可以防止反编译，可以支持大部分反射功能" />
+        <link rel="icon" href="/assets/website/img/freequantumultx/favicon.ico" type="image/x-icon"/>
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LX9T7GC1HS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LX9T7GC1HS');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="singleBlogPage">
+            <!-- site-navigation start -->
+    <nav id="mainNavigation" class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar logo -->
+                <div class="navbar-brand">
+                                        <a href="/">
+                        <span>Free Quantumult X</span>
+                    </a>
+                                    </div>
+                <!-- navbar logo -->
+            </div><!-- /.navbar-header -->
+            <!-- nav links -->
+            <div class="collapse navbar-collapse" id="main-nav-collapse">
+                <ul class="nav navbar-nav navbar-right text-uppercase">
+                                        <li>
+                        <a href="/">首页</a>
+                    </li>
+                                        <li>
+                        <a href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li>
+                        <a href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li>
+                        <a href="/news/">新闻资讯</a>
+                    </li>
+                                        <li>
+                        <a href="#">关于</a>
+                    </li>
+                    <li>
+                        <a href="#">联系</a>
+                    </li>
+                </ul>
+            </div><!-- nav links -->
+        </div><!-- /.container -->
+    </nav>
+        <!-- header begin -->
+        <header class="page-head">
+            <div class="header-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ol class="breadcrumb">
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/news/">新闻资讯</a></li>
+                                <li class="active">正文</li>
+                            </ol> <!-- end of /.breadcrumb -->
+                        </div>
+                    </div>
+                </div> <!-- /.container -->
+            </div> <!-- /.header-wrapper -->
+        </header> <!-- /.page-head -->
+        <!-- header end -->
+        <!-- start: about us section -->
+        <section id="about">
+            <div class="container">
+                <div class="about-info">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h1 class="mb-2">CPF 使用C#的Native AOT 发布程序</h1>
+                                            <input type="hidden" id="share-website-info" data-name="QuantumultX Node(圈X)官方节点站" data-url="https://quantumultxnode.github.io">
+                  				  				  				<p>微软已经将AOT的包移到Nuget了，之前是在实验测试服务器上的。并且由之前的alpha版本改成了preview版本。</p> <p>C#的开发效率，接近C++的运行效率，而且可以防止反编译，可以支持大部分反射功能。还有几个小问题，暂时不能支持x86，win7上运行aot的程序可能需要打补丁！</p> <p>CPF里使用AOT需要将项目改成net5以上版本，因为net5之后才有COM的包装器，如果你只是给自己的控制台程序AOT的话，可以用低版本的netcore（.NET 7 Preview 3 开始，NativeAOT 将只支持 .NET 6+）</p> <p>使用方式很简单，编辑csproj，加入下面一段代码，另外CPF的包版本需要换成最新的</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">PropertyGroup</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">IlcOptimizationPreference</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span>Size<span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">IlcOptimizationPreference</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">IlcGenerateStackTraceData</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span>false<span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">IlcGenerateStackTraceData</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">PropertyGroup</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">ItemGroup</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">RdXmlFile</span><span style="color: rgba(255, 0, 0, 1)">Include</span><span style="color: rgba(0, 0, 255, 1)">="rd.xml"</span><span style="color: rgba(0, 0, 255, 1)">/&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">PackageReference</span><span style="color: rgba(255, 0, 0, 1)">Include</span><span style="color: rgba(0, 0, 255, 1)">="Microsoft.DotNet.ILCompiler"</span><span style="color: rgba(255, 0, 0, 1)"> Version</span><span style="color: rgba(0, 0, 255, 1)">="7.0.0-preview.2.22152.2"</span><span style="color: rgba(0, 0, 255, 1)">/&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">ItemGroup</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span></pre> </div> <blockquote> <p>一般建议根据发布平台的注释掉其他平台的适配器，以及删除其他平台的引用，用来减少发布的程序大小。比如如果发布Windows上的，可以把Mac和Linux的注释掉。</p> <p>另外需要注意的是使用AOT方式发布的话，需要到对应系统上发布，比如发布Linux的程序，就需要到Linux上发布。不支持跨操作系统编译。</p> </blockquote> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/b3dc8d20a5032b425336853decf70a71.jpg" alt="CPF 使用C#的Native AOT 发布程序"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/c52a70a44a32a9c83da19dfe055b6f4c.jpg" alt="CPF 使用C#的Native AOT 发布程序"></p> <p>项目里增加个rd.xml文件，你可以根据需要添加一些反射的元数据描述</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">Directives</span><span style="color: rgba(255, 0, 0, 1)">xmlns</span><span style="color: rgba(0, 0, 255, 1)">="http://schemas.microsoft.com/netfx/2013/01/metadata"</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">Application</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">Assembly</span><span style="color: rgba(255, 0, 0, 1)">Name</span><span style="color: rgba(0, 0, 255, 1)">="CPF"</span><span style="color: rgba(255, 0, 0, 1)"> Dynamic</span><span style="color: rgba(0, 0, 255, 1)">="Required All"</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">Type</span><span style="color: rgba(255, 0, 0, 1)">Name</span><span style="color: rgba(0, 0, 255, 1)">="CPF.Animation.KeyFrame`1[[CPF.Drawing.Color,CPF]]"</span><span style="color: rgba(255, 0, 0, 1)"> Dynamic</span><span style="color: rgba(0, 0, 255, 1)">="Required All"</span><span style="color: rgba(0, 0, 255, 1)">/&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">Assembly</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">Assembly</span><span style="color: rgba(255, 0, 0, 1)">Name</span><span style="color: rgba(0, 0, 255, 1)">="CPF.Windows"</span><span style="color: rgba(255, 0, 0, 1)"> Dynamic</span><span style="color: rgba(0, 0, 255, 1)">="Required All"</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">Type</span><span style="color: rgba(255, 0, 0, 1)">Name</span><span style="color: rgba(0, 0, 255, 1)">="CPF.Windows.OpenGL.WglCreateContextAttribsARBDelegate"</span><span style="color: rgba(255, 0, 0, 1)"> MarshalDelegate</span><span style="color: rgba(0, 0, 255, 1)">="Required All"</span><span style="color: rgba(0, 0, 255, 1)">/&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">Assembly</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">Application</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span><span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">Directives</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span></pre> </div> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/993cee7e1fe4f1efed1212eeffa7555d.jpg" alt="CPF 使用C#的Native AOT 发布程序"></p> <p>一般的，项目右键，选择发布。 如果你喜欢用命令行也是可以的。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/64dd680e95dff59af122b05acfa704be.jpg" alt="CPF 使用C#的Native AOT 发布程序"></p> <p>选择文件夹</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/00b7154f353d978f525ccbb2e444117f.jpg" alt="CPF 使用C#的Native AOT 发布程序"></p> <p>设置好发布路径，完成。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/e64f6b3f319b01c91c0e2714cb859d6b.jpg" alt="CPF 使用C#的Native AOT 发布程序"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/563abeb12fc66b075a475877e6f12503.jpg" alt="CPF 使用C#的Native AOT 发布程序"></p> <p>需要注意的是Windows端暂时只能用x64的，x86的好像还不行。需要用Release方式，Debug模式效果不好。设置好了之后，直接点发布。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/dfede5e82a72cd14887fbff60006c753.jpg" alt="CPF 使用C#的Native AOT 发布程序"></p> <p>之后一般等待一两分钟就行，你可以看到输出那边的相关信息</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/b9d6d523005a1dee331e049b9c015639.jpg" alt="CPF 使用C#的Native AOT 发布程序"></p> <p>发布成功之后的程序，双击启动秒开，比非AOT发布的启动速度快多了。主程序小于30M，另外依赖一个7M的skia的dll</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/f4773c86279940f30ac9bb7d3cec385e.jpg" alt="CPF 使用C#的Native AOT 发布程序"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/94d42b2445a953239fd6df2880012951.jpg" alt="CPF 使用C#的Native AOT 发布程序"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/c378915c1079eb391d0247763890c05f.jpg" alt="CPF 使用C#的Native AOT 发布程序"></p> <p>&nbsp;AOT后的程序也是可以调试的，带上对应的pdb文件，然后采用附加进程的方式附加刚才启动的程序，然后就可以进入断点了</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/7c85615866717155f2a66679f9af2925.jpg" alt="CPF 使用C#的Native AOT 发布程序"></p> <p>如果出现无法启动程序的情况，你可以先把项目输出类型改成控制台再AOT之后运行，这样就可以看到相关异常信息。比如反射类型缺失什么的，你可以编辑rd.xml文档</p> <p>更加详细说明可以看看微软的文档&nbsp;&nbsp;https://github.com/dotnet/runtime/tree/main/src/coreclr/nativeaot/docs</p> <p><audio controls="controls" style="display: none" rel="nofollow"></audio></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-30692.htm">这些OAuth2客户端的认证方式你未必了解</a></p>
+                                        <p>下一个：<a href="/news/article-31145.htm">动物疫苗的种类有哪些图片大全 动物疫苗的种类有哪些图片大全集</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-9-13-free-quantumult-x-node.htm" title="9月13日→18.3M/S|2024年最新免费节点Free QuantumultX订阅链接地址">9月13日→18.3M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-29749.htm" title="网店卖宠物用品赚钱吗（网店卖宠物用品赚钱吗现在）">网店卖宠物用品赚钱吗（网店卖宠物用品赚钱吗现在）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-25-quantumult-x-github.htm" title="10月25日→21.9M/S|2024年最新免费节点Free QuantumultX订阅链接地址">10月25日→21.9M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-20-quantumult-x-node-share.htm" title="10月20日→21.1M/S|2024年最新免费节点Free QuantumultX订阅链接地址">10月20日→21.1M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-25082.htm" title="实际业务处理 Kafka 消息丢失、重复消费和顺序消费的问题">实际业务处理 Kafka 消息丢失、重复消费和顺序消费的问题</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-18-free-quantumult-x-node.htm" title="12月18日→22M/S|2024年最新免费节点Free QuantumultX订阅链接地址">12月18日→22M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-1-free-node-subscribe-links.htm" title="10月1日→19.9M/S|2024年最新免费节点Free QuantumultX订阅链接地址">10月1日→19.9M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-quantumult-x-node-github.htm" title="12月3日→19.7M/S|2024年最新免费节点Free QuantumultX订阅链接地址">12月3日→19.7M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23681.htm" title="上海宠物美容师工资多少（上海宠物美容师工资多少一个月）">上海宠物美容师工资多少（上海宠物美容师工资多少一个月）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-20-quantumult-x-github.htm" title="9月20日→21.4M/S|2024年最新免费节点Free QuantumultX订阅链接地址">9月20日→21.4M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                </div><!-- /.about-info -->
+            </div>
+        </section> <!-- /#about -->
+        <!-- end: about us section-->
+                <!-- start: footer -->
+        <footer class="text-uppercase">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Free QuantumultX节点订阅官网</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end: footer -->
+        <!--  Necessary scripts  -->
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/smooth-scroll.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/owl.carousel.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/contact.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/script.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>
