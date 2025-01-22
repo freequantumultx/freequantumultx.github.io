@@ -1,0 +1,220 @@
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freequantumultx.github.io/news/article-43817.htm" />
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>采用JSP+Servlet+JavaBean+JDBC方式开发一个web登录程序</title>
+        <meta name="description" content="采用JSP+Servlet+JavaBean+JDBC方式开发一个web登录程序  1.选用开发环境：SQL Server 、JDK1.8、Tomcat7.0、Myeclipse 2014 2.开发模" />
+        <link rel="icon" href="/assets/website/img/freequantumultx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free QuantumultX节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freequantumultx.github.io/news/article-43817.htm" />
+    <meta property="og:site_name" content="Free QuantumultX节点订阅官网" />
+    <meta property="og:title" content="采用JSP+Servlet+JavaBean+JDBC方式开发一个web登录程序" />
+    <meta property="og:image" content="https://freequantumultx.github.io/uploads/20240905-1/e50a1df1a71f25b65c1cc70cf3e4ac3b.webp" />
+        <meta property="og:release_date" content="2025-01-21T09:48:53" />
+    <meta property="og:updated_time" content="2025-01-21T09:48:53" />
+        <meta property="og:description" content="采用JSP+Servlet+JavaBean+JDBC方式开发一个web登录程序  1.选用开发环境：SQL Server 、JDK1.8、Tomcat7.0、Myeclipse 2014 2.开发模" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="采用JSP+Servlet+JavaBean+JDBC方式开发一个web登录程序">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LX9T7GC1HS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LX9T7GC1HS');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="singleBlogPage">
+            <!-- site-navigation start -->
+    <nav id="mainNavigation" class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar logo -->
+                <div class="navbar-brand">
+                                        <a href="/">
+                        <span>Free Quantumult X</span>
+                    </a>
+                                    </div>
+                <!-- navbar logo -->
+            </div><!-- /.navbar-header -->
+            <!-- nav links -->
+            <div class="collapse navbar-collapse" id="main-nav-collapse">
+                <ul class="nav navbar-nav navbar-right text-uppercase">
+                                        <li>
+                        <a href="/">首页</a>
+                    </li>
+                                        <li>
+                        <a href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li>
+                        <a href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li>
+                        <a href="/news/">新闻资讯</a>
+                    </li>
+                                        <li>
+                        <a href="#">关于</a>
+                    </li>
+                    <li>
+                        <a href="#">联系</a>
+                    </li>
+                </ul>
+            </div><!-- nav links -->
+        </div><!-- /.container -->
+    </nav>
+        <!-- header begin -->
+        <header class="page-head">
+            <div class="header-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ol class="breadcrumb">
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/news/">新闻资讯</a></li>
+                                <li class="active">正文</li>
+                            </ol> <!-- end of /.breadcrumb -->
+                        </div>
+                    </div>
+                </div> <!-- /.container -->
+            </div> <!-- /.header-wrapper -->
+        </header> <!-- /.page-head -->
+        <!-- header end -->
+        <!-- start: about us section -->
+        <section id="about">
+            <div class="container">
+                <div class="about-info">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h1 class="mb-2">采用JSP+Servlet+JavaBean+JDBC方式开发一个web登录程序</h1>
+                                            <input type="hidden" id="share-website-info" data-name="QuantumultX Node(圈X)官方节点站" data-url="https://quantumultxnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p id="main-toc">采用JSP+Servlet+JavaBean+JDBC方式开发一个web登录程序</p> <hr/> <p>1.<strong>选用开发环境：</strong>SQL Server 、JDK1.8、Tomcat7.0、Myeclipse 2014</p> <p>2<strong>.开发模式及工作原理：</strong></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 首先，Servlet接收浏览器发送的请求，Servlet根据不同的Servlet调用相应的Javabean，然后JavaBean按照自己的业务逻辑 ，通过JDBC操作数据库。Servlet将数据库传递给JSP,最后，JSP将后台处理的结果呈现给浏览器。如图1.1所示：</p> <p><img fetchpriority="high" decoding="async" alt="" class="has" height="220" src="http://img.555519.xyz/uploads3/20220723/f56d0f46992b13cd1a6622c9ca86a74d.jpg"></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 图1.1 &nbsp; &nbsp; &nbsp; Servlet模式工作原理</p> <p>3.<strong>建立数据库与表，创建数据库连接：</strong></p> <p>（1）创建数据库:在SQL Server 2014 中创建数据库，命名TEST，其中建立userTable 表（用户表），表结构如表1.1所示：</p> <table border="1" cellpadding="1" cellspacing="1" style="width:500px;"> <caption>   表1.1 userTable 表</caption> <tbody> <tr> <td>字段名称</td> <td>数据类型</td> <td>主键</td> <td>自增</td> <td>允许为空</td> <td>描述</td> </tr> <tr> <td>id</td> <td>int</td> <td>yes</td> <td>增1</td> <td></td> <td>ID号</td> </tr> <tr> <td>username</td> <td>varchar(20)</td> <td></td> <td></td> <td></td> <td>用户名</td> </tr> <tr> <td>password</td> <td>varchar(20)</td> <td></td> <td></td> <td></td> <td>密码</td> </tr> </tbody> </table> <ul> <li>id设为自增int型，主键</li> <li>表建好后，插入几条记录</li> <li>效果图如图1.2所示：</li> </ul> <p><img decoding="async" alt="" class="has" height="200" src="http://img.555519.xyz/uploads3/20220723/58a1fb07e85d0a8447a5acaa949f62a2.jpg"></p> <p><img decoding="async" alt="" class="has" height="198" src="http://img.555519.xyz/uploads3/20220723/be08b11f9cf57894b655e13d9a4430c3.jpg"></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 图1.2 数据库表及数据效果图</p> <p>&nbsp; &nbsp;&nbsp; （2）创建数据库连接：</p> <ul> <li>加载JDBC驱动包：sqljdbc4.jar,可从网上下载并保存在Myeclipse 2014默认工作区“C：\User\join\Workspaces\MyeElipse professional 2014，同时，将JDBC驱动包sqljdbc4.jar复制到项目"\WebRoot\WEB-INF\lib"目录下。</li> <li>创建数据源连接：主菜单【Window】，选择【Open Perspective】，【MyEclipse Database Explorer】，打开“数据库浏览器”模式，右击鼠标选择【New...】，编辑数据库驱动如图1.3，其中Driver JARs 即先前存盘的数据库驱动。右击创建的sqlsrv,选择菜单【Open connection...】测试</li> </ul> <p><img loading="lazy" decoding="async" alt="" class="has" height="358" src="http://img.555519.xyz/uploads3/20220723/4e8b215a2d67a21fd55039cca1b96bb0.jpg"></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 图1.3&nbsp;编辑数据库连接驱动</p> <p>4.<strong>详细开发步骤</strong>：</p> <p>（1）<em>创建Java EE项目</em>：选择主菜单【File】<img decoding="async" alt="\rightarrow" class="mathcode" src="http://img.555519.xyz/uploads3/20220723/4b641d298233e2c377d9bd3f0104e3fb.jpg">【New】<img decoding="async" alt="\rightarrow" class="mathcode" src="http://img.555519.xyz/uploads3/20220723/4b641d298233e2c377d9bd3f0104e3fb.jpg">【Web Project】，在【New Web Project】窗口中填写项目名jsp_servlet_javabean_jdbc,单击【Next】，在“Web Module"页勾选"Generate web.xml deployment descriptor"，可自动生成web.xml配置文件。单击【Next】，勾选"JavaEE 7.0 Generic Library",取消选择''JSTL 1.2.2 Library(除去不必要的类库）。设置完成后，单击【Finish】，生成一个Java EE 项目。</p> <p>（2）<em>创建JDBC类</em>：右击项目src,选择【New】<img decoding="async" alt="\rightarrow" class="mathcode" src="http://img.555519.xyz/uploads3/20220723/4b641d298233e2c377d9bd3f0104e3fb.jpg">【Package】，输入包名"org.easybooks.test.jdbc",单击【Finish】按钮。</p> <p>右击src,选择【New】<img decoding="async" alt="\rightarrow" class="mathcode" src="http://img.555519.xyz/uploads3/20220723/4b641d298233e2c377d9bd3f0104e3fb.jpg">【Class】，指定"org.easybooks.test.jdbc"包,输入类名"SqlSrvDBConn"。</p> <p>SqlSrvDBConn.java代码如下：</p> <pre class="has"><code>package org.easybooks.test.jdbc; import java.sql.*; public class SqlSrvDBConn { 	private Statement stmt; 	private Connection conn; 	ResultSet rs; 	public SqlSrvDBConn(){ 		stmt=null; 		try{ 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); 			 			conn=DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=TEST","sa","sa"); 			 		}catch(Exception e){ 			e.printStackTrace(); 		} 		rs=null; 	} 	//执行查询类语句，又返回集 	public ResultSet executeQuery(String sql) 	{ 		try{ 			stmt=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, 					                                          ResultSet.CONCUR_UPDATABLE); 				rs=stmt.executeQuery(sql); 			}catch(SQLException e){ 				System.err.println("Data.executeQuery:"+e.getMessage()); 			} 		return rs; 	} 	//关闭对象 	public void closeStmt() 	{ 		try{ 			stmt.close();    //关闭Statement对象 		}catch(SQLException e){ 			System.err.println("Data.executeQuery:"+e.getMessage()); 		} 	} 	public void closeConn() 	{ 		try{ 			conn.close();     //关闭连接 		}catch(SQLException e){ 			System.err.println("Data.executeQuery:"+e.getMessage()); 		} 	} }</code></pre> <p>（3）<em>构造JavaBean</em>:在src下建立包org.easybooks.test.model.vo,其中创建名为UserTable的类，为userTable表构造一个JavaBean,代码如下：</p> <pre class="has"><code>package org.easybooks.test.model.vo;  public class UserTable { 	private Integer id; 	private String username; 	private String password; 	public Integer getId() { 		return this.id; 	} 	public void setId(Integer id) { 		this.id = id; 	} 	public String getUsername() { 		return this.username; 	} 	public void setUsername(String username) { 		this.username = username; 	} 	public String getPassword() { 		return this.password; 	} 	public void setPassword(String password) { 		this.password = password; 	} 	 }</code></pre> <p>（4）<em>编写JSP</em>:</p> <p>展开项目工程树，右击"WebRoot",选择【New】<img decoding="async" alt="\rightarrow" class="mathcode" src="http://img.555519.xyz/uploads3/20220723/4b641d298233e2c377d9bd3f0104e3fb.jpg">【File】，在File name中输入文件名login.jsp,单击【Finish】。在代码编辑器中编写登录页login.jsp文件。代码如下：</p> <pre class="has"><code>&lt;%@ page language="java" pageEncoding="utf-8"%&gt; &lt;html&gt; &lt;head&gt;&lt;title&gt;登录&lt;/title&gt;&lt;/head&gt; &lt;body bgcolor="#E3E3E3"&gt; &lt;form action="mainServlet" method="post"&gt; &lt;table&gt;   &lt;caption&gt;用户登录：&lt;/caption&gt;   &lt;tr&gt;     &lt;td&gt;用户名：&lt;/td&gt;     &lt;td&gt;       &lt;input type="text" name="username" size="20"/&gt;     &lt;/td&gt;   &lt;/tr&gt;   &lt;tr&gt;    &lt;td&gt;密码：&lt;/td&gt;    &lt;td&gt;      &lt;input type="password" name="password" size="21"/&gt;    &lt;/td&gt;   &lt;/tr&gt; &lt;/table&gt; &lt;input type="submit" value="登录"/&gt; &lt;input type="reset"  value="重置"/&gt; &lt;/form&gt; 如果没注册单击&lt;a href=""&gt;这里&lt;/a&gt;注册！ &lt;/body&gt; &lt;/html&gt;</code></pre> <p>此页面用于登录首页。同样方法在WebRoot下创建主页main.jsp文件，代码如下：</p> <pre class="has"><code>&lt;%@page language="java" pageEncoding="gb2312" import="org.easybooks.test.model.vo.UserTable"%&gt; &lt;html&gt; &lt;head&gt; 	&lt;title&gt;留言板信息&lt;/title&gt; &lt;/head&gt; &lt;body&gt; 	&lt;% 		UserTable user=(UserTable)session.getAttribute("user"); 		String usr=user.getUsername(); 		 		%&gt; 		&lt;%=usr%&gt;,您好，欢迎登录留言板。 &lt;/body&gt; &lt;/html&gt;</code></pre> <p>同样方法在WebRoot下创建主页error.jsp文件，代码如下：</p> <pre class="has"><code>&lt;%@page language="java" pageEncoding="utf-8"%&gt; &lt;html&gt; &lt;head&gt; 	&lt;title&gt;出错&lt;/title&gt; &lt;/head&gt; &lt;body&gt;    	   登录失败！单击&lt;a href="login.jsp"&gt;这里&lt;/a&gt;返回 &lt;/body&gt; &lt;/html&gt;</code></pre> <p>（5）<em>编写Servlet</em>:</p> <p>在src下创建包org.easybooks.test.servlet，在包中创建名为MainServlet的类（Servlet类）。编写MainServlet.java 代码如下：</p> <pre class="has"><code>package org.easybooks.test.servlet; import  java.sql.*; import  java.io.*; import  javax.servlet.*; import  javax.servlet.http.*; import  org.easybooks.test.jdbc.SqlSrvDBConn; import  org.easybooks.test.model.vo.UserTable;; public class MainServlet extends HttpServlet { 	public void doGet(HttpServletRequest request,HttpServletResponse response)throws ServletException, 	        IOException{ 		request.setCharacterEncoding("gb2312"); 		String  usr=request.getParameter("username"); 		String  pwd=request.getParameter("password"); 		boolean validated=false; 		SqlSrvDBConn sqlsrvdb=new SqlSrvDBConn(); 		HttpSession session=request.getSession(); 		UserTable user=null; 		user=(UserTable)session.getAttribute("user"); 		if(user==null){ 			String sql="select*from userTable"; 			ResultSet rs=sqlsrvdb.executeQuery(sql); 			try{ 				 			 			while(rs.next())       		 {        			if((rs.getString("username").trim().compareTo(usr)==0)                 			 &amp;&amp;(rs.getString("password").compareTo(pwd)==0))         			 {        					user=new UserTable();        					user.setId(rs.getInt(1));        					user.setUsername(rs.getString(2));        					user.setPassword(rs.getString(3));        					session.setAttribute("user",user);  //把user对象存储在会话中        					validated=true;  //标识为true表示验证成功通过           			 }           	}           rs.close(); 	}catch(SQLException e){ 		e.printStackTrace(); 	} 			sqlsrvdb.closeStmt(); 			sqlsrvdb.closeConn(); 		} 		else{ 			validated=true; 		} 		if(validated) 		{ 			response.sendRedirect("main.jsp"); 		} 		else{ 			response.sendRedirect("error.jsp"); 			 		} 	        } 	        public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException, 	           IOException{ 	        	doGet(request,response); 	        	 	        } 	 	 	 	 }</code></pre> <p>（6）<em>配置Servlet</em>:修改web.xml，代码如下：</p> <pre class="has"><code class="language-java">&lt;?xml version="1.0" encoding="UTF-8"?&gt; &lt;web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0"&gt;   &lt;display-name&gt;jsp_servlet_javabean_jdbc&lt;/display-name&gt;   &lt;welcome-file-list&gt;     	&lt;welcome-file&gt;index.html&lt;/welcome-file&gt;     	&lt;welcome-file&gt;index.htm&lt;/welcome-file&gt;    	 	&lt;welcome-file&gt;login.jsp&lt;/welcome-file&gt;     	&lt;welcome-file&gt;default.html&lt;/welcome-file&gt;     	&lt;welcome-file&gt;default.htm&lt;/welcome-file&gt;     	&lt;welcome-file&gt;default.jsp&lt;/welcome-file&gt;   &lt;/welcome-file-list&gt;    &lt;servlet&gt;   		&lt;servlet-name&gt;mainServlet&lt;/servlet-name&gt;   		&lt;servlet-class&gt;org.easybooks.test.servlet.MainServlet&lt;/servlet-class&gt;   &lt;/servlet&gt;   &lt;servlet-mapping&gt;   		&lt;servlet-name&gt;mainServlet&lt;/servlet-name&gt;  		&lt;url-pattern&gt;/mainServlet&lt;/url-pattern&gt;   &lt;/servlet-mapping&gt;        &lt;servlet&gt;   		&lt;servlet-name&gt;selectAll&lt;/servlet-name&gt;   		&lt;servlet-class&gt;org.easybooks.test.servlet.SelectAllServlet&lt;/servlet-class&gt;   &lt;/servlet&gt;   &lt;servlet-mapping&gt;   		&lt;servlet-name&gt;selectAll&lt;/servlet-name&gt;  		&lt;url-pattern&gt;/selectAll&lt;/url-pattern&gt;   &lt;/servlet-mapping&gt; &lt;/web-app&gt;</code></pre> <p>5.<strong>部署和运行：</strong></p> <ul> <li>项目最终形成树见下图1.4：</li> </ul> <p><img loading="lazy" decoding="async" alt="" class="has" height="305" src="http://img.555519.xyz/uploads3/20220723/1add342aa3252ec5bbed4936843cc9d0.jpg"></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 图1.4&nbsp; 项目jsp_servlet_javabean_jdbc最终形成树</p> <p><img loading="lazy" decoding="async" alt="" class="has" height="301" src="http://img.555519.xyz/uploads3/20220723/38feb21b3698724039e1634520f9fe40.jpg"></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 图1.5&nbsp; 部署成功</p> <ul> <li>单击工具栏<img loading="lazy" decoding="async" alt="" class="has" height="16" src="http://img.555519.xyz/uploads3/20220723/7b66aec29a3e6d58fcf3276e9ffcd8e0.jpg">按钮，弹出图1.5对话框，选择项目jsp_servlet_javabean_jdbc，单击【Add】按钮，选择Tomcat7.0作为服务器（此程序使用内置Tomcat),单击【OK】，部署成功。</li> <li>启动Tomcat 7.0，在浏览器中输入“http://localhost:8080/jsp_servlet_javabean_jdbc/,显示登录页面（图1.6），输入用户名，密码，提交表单，转到主页（图1.7），若userTable表中不存在相对应的用户名，密码，则提交后跳转到出错页（图1.8）。</li> </ul> <p><img loading="lazy" decoding="async" alt="" class="has" height="161" src="http://img.555519.xyz/uploads3/20220723/13abdb17a68cf95fb18e97067a2d4c98.jpg"></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 图1.6 &nbsp;&nbsp;登录页面</p> <p><img loading="lazy" decoding="async" alt="" class="has" height="152" src="http://img.555519.xyz/uploads3/20220723/3ccd4a43d28bdc4090345ad100ce8b7c.jpg"></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 图1.7 成功登录页面</p> <p><img loading="lazy" decoding="async" alt="" class="has" height="169" src="http://img.555519.xyz/uploads3/20220723/437abfab9d74e9e3e0bf14f02d82a7c7.jpg"></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 图1.8 出错页</p> <p id="-toc" style="margin-left:80px;"> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-43816.htm">转载：Hadoop相关知识整理系列之一：HBase基本架构及原理</a></p>
+                                        <p>下一个：<a href="/news/article-44303.htm">Goland proto文件 File Watch 自动生成</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-39848.htm" title="想做狗粮生意刚开始怎么入手（做狗粮挣钱吗）">想做狗粮生意刚开始怎么入手（做狗粮挣钱吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-25-quantumult-x-github.htm" title="10月25日→21.9M/S|2024年最新免费节点Free QuantumultX订阅链接地址">10月25日→21.9M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-30692.htm" title="这些OAuth2客户端的认证方式你未必了解">这些OAuth2客户端的认证方式你未必了解</a></li>
+                        <li class="py-2"><a href="/news/article-27407.htm" title="动物防疫站疫苗免费打吗 动物防疫站疫苗免费打吗现在">动物防疫站疫苗免费打吗 动物防疫站疫苗免费打吗现在</a></li>
+                        <li class="py-2"><a href="/news/article-31645.htm" title="动物疫病预防控制中心电话（南京市动物疫病预防控制中心电话）">动物疫病预防控制中心电话（南京市动物疫病预防控制中心电话）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-today-quantumult-x-node.htm" title="12月6日→19.4M/S|2024年最新免费节点Free QuantumultX订阅链接地址">12月6日→19.4M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-38858.htm" title="宠物粮生产厂家排名榜前十名有哪些（宠物粮食生产厂家）">宠物粮生产厂家排名榜前十名有哪些（宠物粮食生产厂家）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-quantumult-x-github.htm" title="11月13日→19.1M/S|2024年最新免费节点Free QuantumultX订阅链接地址">11月13日→19.1M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-20021.htm" title="宠物主粮品牌 宠物主粮品牌有哪些">宠物主粮品牌 宠物主粮品牌有哪些</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-node-share-links.htm" title="1月10日→19.4M/S|2025年最新免费节点Free QuantumultX订阅链接地址">1月10日→19.4M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">65</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                </div><!-- /.about-info -->
+            </div>
+        </section> <!-- /#about -->
+        <!-- end: about us section-->
+                <!-- start: footer -->
+        <footer class="text-uppercase">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Free QuantumultX节点订阅官网</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end: footer -->
+        <!--  Necessary scripts  -->
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/smooth-scroll.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/owl.carousel.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/contact.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/script.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>
