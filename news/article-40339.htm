@@ -9,6 +9,33 @@
     <title>Redis4-缓存过期和删除策略</title>
         <meta name="description" content="目录 为什么需要设置Redis的缓存过期？ 如何设置缓存过期 maxmemory配置项 不设置的场景 设置的场景 那么如何设置内存合理呢？根据业务进行判断 expire命令 expire的使用 缓存过" />
         <link rel="icon" href="/assets/website/img/freequantumultx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free QuantumultX节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freequantumultx.github.io/news/article-40339.htm" />
+    <meta property="og:site_name" content="Free QuantumultX节点订阅官网" />
+    <meta property="og:title" content="Redis4-缓存过期和删除策略" />
+    <meta property="og:image" content="https://freequantumultx.github.io/uploads/20240905-1/f1a10e0dc7f964891c2ef2dc15f52150.webp" />
+        <meta property="og:release_date" content="2025-01-14T07:34:06" />
+    <meta property="og:updated_time" content="2025-01-14T07:34:06" />
+        <meta property="og:description" content="目录 为什么需要设置Redis的缓存过期？ 如何设置缓存过期 maxmemory配置项 不设置的场景 设置的场景 那么如何设置内存合理呢？根据业务进行判断 expire命令 expire的使用 缓存过" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Redis4-缓存过期和删除策略">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- stylesheets -->
     <link rel="stylesheet" href="/assets/website/css/freequantumultx/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/website/css/freequantumultx/ionicons.min.css">
@@ -112,16 +139,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-29-today-quantumult-x-node.htm" title="10月29日→21.7M/S|2024年最新免费节点Free QuantumultX订阅链接地址">10月29日→21.7M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-21403.htm" title="我所在的城市有一家宠物医院英语翻译 我所在的城市有一家宠物医院英语翻译">我所在的城市有一家宠物医院英语翻译 我所在的城市有一家宠物医院英语翻译</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-13-today-quantumult-x-node.htm" title="12月13日→18.6M/S|2024年最新免费节点Free QuantumultX订阅链接地址">12月13日→18.6M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-39351.htm" title="广州哪里有宠物批发市场最大（广州哪里有宠物批发市场最大的地方）">广州哪里有宠物批发市场最大（广州哪里有宠物批发市场最大的地方）</a></li>
-                        <li class="py-2"><a href="/news/article-40340.htm" title="中国最好的兽药厂家麻杏石甘散是全国哪个省份 兽用麻杏石甘散哪个厂家的好">中国最好的兽药厂家麻杏石甘散是全国哪个省份 兽用麻杏石甘散哪个厂家的好</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-8-node-share.htm" title="11月8日→19.3M/S|2024年最新免费节点Free QuantumultX订阅链接地址">11月8日→19.3M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-1-2-quantumult-x-node-share.htm" title="1月2日→22.7M/S|2025年最新免费节点Free QuantumultX订阅链接地址">1月2日→22.7M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-7-free-quantumult-x-node.htm" title="1月7日→19M/S|2025年最新免费节点Free QuantumultX订阅链接地址">1月7日→19M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-2-free-subscribe-node.htm" title="12月2日→21.9M/S|2024年最新免费节点Free QuantumultX订阅链接地址">12月2日→21.9M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-9-quantumult-x-github.htm" title="1月9日→21.6M/S|2025年最新免费节点Free QuantumultX订阅链接地址">1月9日→21.6M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-latest-quantumult-x-node.htm" title="12月15日→20.9M/S|2024年最新免费节点Free QuantumultX订阅链接地址">12月15日→20.9M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-quantumult-x-node.htm" title="11月12日→20.8M/S|2024年最新免费节点Free QuantumultX订阅链接地址">11月12日→20.8M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-19-today-quantumult-x-node.htm" title="1月19日→21.9M/S|2025年最新免费节点Free QuantumultX订阅链接地址">1月19日→21.9M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-41830.htm" title="react实战系列起步（mockjs、第一个模块、docusaurus）">react实战系列起步（mockjs、第一个模块、docusaurus）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-free-high-speed-nodes.htm" title="11月21日→18.4M/S|2024年最新免费节点Free QuantumultX订阅链接地址">11月21日→18.4M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-24-node-share.htm" title="12月24日→20.6M/S|2024年最新免费节点Free QuantumultX订阅链接地址">12月24日→20.6M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-43319.htm" title="动物医院的规划和布局（动物医院的规划和布局图）">动物医院的规划和布局（动物医院的规划和布局图）</a></li>
+                        <li class="py-2"><a href="/news/article-42820.htm" title="聊一聊Vue3.2中setup语法糖+volar">聊一聊Vue3.2中setup语法糖+volar</a></li>
+                        <li class="py-2"><a href="/news/article-22771.htm" title="虚拟机搭建负载均衡，mysql主从复制和读写分离（三、搭建负载均衡）">虚拟机搭建负载均衡，mysql主从复制和读写分离（三、搭建负载均衡）</a></li>
                     </ul>
     </div>
 </div>
@@ -133,16 +160,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">47</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
