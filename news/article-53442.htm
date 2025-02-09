@@ -1,0 +1,217 @@
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freequantumultx.github.io/news/article-53442.htm" />
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CentOS 7.6环境设置Redis开机自启动</title>
+        <meta name="description" content="[root@node03 init.d]# touch&nbsp;redis  注意：redis的安装路径: /root/redis/，按照实际安装路径来即可。 #!/bin/sh # # chkco" />
+        <link rel="icon" href="/assets/website/img/freequantumultx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free QuantumultX节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freequantumultx.github.io/news/article-53442.htm" />
+    <meta property="og:site_name" content="Free QuantumultX节点订阅官网" />
+    <meta property="og:title" content="CentOS 7.6环境设置Redis开机自启动" />
+    <meta property="og:image" content="https://freequantumultx.github.io/uploads/20240905-1/8771061ce45c44fc58415068d99a4848.webp" />
+        <meta property="og:release_date" content="2025-02-09T10:03:14" />
+    <meta property="og:updated_time" content="2025-02-09T10:03:14" />
+        <meta property="og:description" content="[root@node03 init.d]# touch&nbsp;redis  注意：redis的安装路径: /root/redis/，按照实际安装路径来即可。 #!/bin/sh # # chkco" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="CentOS 7.6环境设置Redis开机自启动">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LX9T7GC1HS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LX9T7GC1HS');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="singleBlogPage">
+            <!-- site-navigation start -->
+    <nav id="mainNavigation" class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar logo -->
+                <div class="navbar-brand">
+                    <a href="/">
+                                        <span>Free QuantumultX</span>
+                                        </a>
+                </div>
+                <!-- navbar logo -->
+            </div><!-- /.navbar-header -->
+            <!-- nav links -->
+            <div class="collapse navbar-collapse" id="main-nav-collapse">
+                <ul class="nav navbar-nav navbar-right text-uppercase">
+                                        <li>
+                        <a href="/">首页</a>
+                    </li>
+                                        <li>
+                        <a href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li>
+                        <a href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li>
+                        <a href="/client.htm">客户端</a>
+                    </li>
+                                        <li>
+                        <a href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div><!-- nav links -->
+        </div><!-- /.container -->
+    </nav>
+        <!-- header begin -->
+        <header class="page-head">
+            <div class="header-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ol class="breadcrumb">
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/news/">新闻资讯</a></li>
+                                <li class="active">正文</li>
+                            </ol> <!-- end of /.breadcrumb -->
+                        </div>
+                    </div>
+                </div> <!-- /.container -->
+            </div> <!-- /.header-wrapper -->
+        </header> <!-- /.page-head -->
+        <!-- header end -->
+        <!-- start: about us section -->
+        <section id="about">
+            <div class="container">
+                <div class="about-info">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h1 class="mb-2">CentOS 7.6环境设置Redis开机自启动</h1>
+                                            <input type="hidden" id="share-website-info" data-name="QuantumultX Node(圈X)官方节点站" data-url="https://quantumultxnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p>[root@node03 init.d]# touch&nbsp;redis</p> </h1> <p>注意：redis的安装路径: /root/redis/，按照实际安装路径来即可。</p> <pre><code class="language-bash">#!/bin/sh # # chkconfig: 2345 10 90 # description: Start and Stop redis  ### BEGIN INIT INFO # Provides:     redis_6379 # Default-Start:        2 3 4 5 # Default-Stop:         0 1 6 # Short-Description:    Redis data structure server # Description:          Redis data structure server. See https://redis.io ### END INIT INFO  REDISPORT=6379                            #redis的默认端口，要和下文中的redis.conf中一致 EXEC=/root/redis/bin/redis-server         #redis服务端的命令 CLIEXEC=/root/redis/bin/redis-cli         #redis客户端的命令 PIDFILE=/var/run/redis_${REDISPORT}.pid   #reids的进程文件生成的位置 CONF="/root/redis/bin/redis.conf"         #redis的配置文件所在的目录  #AUTH="1234"  这句没什么用可以不要   case "$1" in     start)         if [ -f $PIDFILE ]         then                 echo "$PIDFILE exists, process is already running or crashed"         else                 echo "Starting Redis server..."                 $EXEC $CONF         fi         ;;     stop)         if [ ! -f $PIDFILE ]         then                 echo "$PIDFILE does not exist, process is not running"         else                 PID=$(cat $PIDFILE)                 echo "Stopping ..."                 $CLIEXEC -p $REDISPORT shutdown                 while [ -x /proc/${PID} ]                 do                     echo "Waiting for Redis to shutdown ..."                     sleep 1                 done                 echo "Redis stopped"         fi         ;;     restart|force-reload)         ${0} stop         ${0} start         ;;     *)         echo "Usage: /etc/init.d/redis {start|stop|restart|force-reload}" &gt;&amp;2            exit 1  esac</code></pre> </h1> <p>[root@node03 init.d]#&nbsp;chmod +777 redis</p> </h1> <p>[root@node03 init.d]#&nbsp;service redis start</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-52903.htm">宠物领养系统论文参考文献怎么写（宠物领养网站论文）</a></p>
+                                        <p>下一个：<a href="/news/article-53443.htm">北京宠爱国际动物医疗机构怎么样呀（北京宠爱国际医院怎么样）</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-node-share-links.htm" title="1月10日→19.4M/S|2025年最新免费节点Free QuantumultX订阅链接地址">1月10日→19.4M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23220.htm" title="人用和兽用狂犬疫苗的区别 人用和兽用狂犬疫苗的区别在哪">人用和兽用狂犬疫苗的区别 人用和兽用狂犬疫苗的区别在哪</a></li>
+                        <li class="py-2"><a href="/news/article-41327.htm" title="宠物粮食厂家排名 宠物粮食厂家排名前十">宠物粮食厂家排名 宠物粮食厂家排名前十</a></li>
+                        <li class="py-2"><a href="/news/article-26949.htm" title="vue使用store">vue使用store</a></li>
+                        <li class="py-2"><a href="/news/article-33553.htm" title="vue @component继承的一些知识点详解">vue @component继承的一些知识点详解</a></li>
+                        <li class="py-2"><a href="/news/article-27874.htm" title="vue实现简单评论功能">vue实现简单评论功能</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-quantumult-x-node-windows.htm" title="1月12日→18.5M/S|2025年最新免费节点Free QuantumultX订阅链接地址">1月12日→18.5M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-35133.htm" title="动物医院名字有创意两个字的（动物医院名片）">动物医院名字有创意两个字的（动物医院名片）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-today-quantumult-x-node.htm" title="12月12日→21.4M/S|2024年最新免费节点Free QuantumultX订阅链接地址">12月12日→21.4M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-47752.htm" title="猫疫苗三针间隔时间（猫疫苗三针间隔时间多久）">猫疫苗三针间隔时间（猫疫苗三针间隔时间多久）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                </div><!-- /.about-info -->
+            </div>
+        </section> <!-- /#about -->
+        <!-- end: about us section-->
+                <!-- start: footer -->
+        <footer class="text-uppercase">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Free QuantumultX节点订阅官网</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end: footer -->
+        <!--  Necessary scripts  -->
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/smooth-scroll.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/owl.carousel.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/contact.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/script.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>

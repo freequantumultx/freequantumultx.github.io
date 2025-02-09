@@ -1,0 +1,217 @@
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freequantumultx.github.io/news/article-52902.htm" />
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>【Spring】——事务实现过程及原理</title>
+        <meta name="description" content="&nbsp;  Spring事务处理，是将事务处理的工作统一起来，并为事务处理提供通用的支持。  &nbsp;   &nbsp;  a、划分处理单元——IOC   &nbsp;  由于spring解决" />
+        <link rel="icon" href="/assets/website/img/freequantumultx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free QuantumultX节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freequantumultx.github.io/news/article-52902.htm" />
+    <meta property="og:site_name" content="Free QuantumultX节点订阅官网" />
+    <meta property="og:title" content="【Spring】——事务实现过程及原理" />
+    <meta property="og:image" content="https://freequantumultx.github.io/uploads/20240905-1/7629119063ef7f37ae4de4fd42a40b27.webp" />
+        <meta property="og:release_date" content="2025-02-08T04:39:11" />
+    <meta property="og:updated_time" content="2025-02-08T04:39:11" />
+        <meta property="og:description" content="&nbsp;  Spring事务处理，是将事务处理的工作统一起来，并为事务处理提供通用的支持。  &nbsp;   &nbsp;  a、划分处理单元——IOC   &nbsp;  由于spring解决" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="【Spring】——事务实现过程及原理">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LX9T7GC1HS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LX9T7GC1HS');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="singleBlogPage">
+            <!-- site-navigation start -->
+    <nav id="mainNavigation" class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar logo -->
+                <div class="navbar-brand">
+                    <a href="/">
+                                        <span>Free QuantumultX</span>
+                                        </a>
+                </div>
+                <!-- navbar logo -->
+            </div><!-- /.navbar-header -->
+            <!-- nav links -->
+            <div class="collapse navbar-collapse" id="main-nav-collapse">
+                <ul class="nav navbar-nav navbar-right text-uppercase">
+                                        <li>
+                        <a href="/">首页</a>
+                    </li>
+                                        <li>
+                        <a href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li>
+                        <a href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li>
+                        <a href="/client.htm">客户端</a>
+                    </li>
+                                        <li>
+                        <a href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div><!-- nav links -->
+        </div><!-- /.container -->
+    </nav>
+        <!-- header begin -->
+        <header class="page-head">
+            <div class="header-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ol class="breadcrumb">
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/news/">新闻资讯</a></li>
+                                <li class="active">正文</li>
+                            </ol> <!-- end of /.breadcrumb -->
+                        </div>
+                    </div>
+                </div> <!-- /.container -->
+            </div> <!-- /.header-wrapper -->
+        </header> <!-- /.page-head -->
+        <!-- header end -->
+        <!-- start: about us section -->
+        <section id="about">
+            <div class="container">
+                <div class="about-info">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h1 class="mb-2">【Spring】——事务实现过程及原理</h1>
+                                            <input type="hidden" id="share-website-info" data-name="QuantumultX Node(圈X)官方节点站" data-url="https://quantumultxnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p style="margin:0in 0in 0in 0.375in; font-family:宋体; font-size:14pt">&nbsp;</p> <p style="margin:0in; margin-left:.75in; font-family:宋体; font-size:14.0pt; color:#3A3838"> <span lang="en-US">Spring</span><span lang="zh-CN">事务处理，是将事务处理的工作统一起来，并为事务处理提供通用的支持。</span></p> <p style="margin:0in; margin-left:.75in; font-family:宋体; font-size:14.0pt; color:#3A3838"> &nbsp;</p> </h1> <p style="margin:0in; margin-left:.375in; font-family:宋体; font-size:14.0pt; color:#3A3838"> &nbsp;</p> <h2 style="margin:0in; margin-left:.75in; font-size:14.0pt"> <span lang="en-US" style="font-family:Calibri; color:#3A3838">a</span><span lang="zh-CN" style="font-family:宋体; color:#3A3838">、</span><span lang="zh-CN" style="font-family:宋体; color:#ED7D31"><strong>划分处理单元——</strong></span><span lang="en-US" style="font-family:宋体; color:#ED7D31"><strong>IOC</strong></span><br /> </h2> <p lang="en-US" style="margin:0in; margin-left:.75in; font-family:宋体; font-size:14.0pt; color:#ED7D31"> &nbsp;</p> <p style="margin:0in; margin-left:1.125in; font-family:宋体; font-size:14.0pt; color:#3A3838"> <span lang="zh-CN">由于</span><span lang="en-US">spring</span><span lang="zh-CN">解决的问题是对单个数据库进行局部事务处理的，具体的实现首相用</span><span lang="en-US">spring</span><span lang="zh-CN">中的</span><span lang="en-US">IOC</span><span lang="zh-CN">划分了事务处理单元。并且将对事务的各种配置放到了</span><span lang="en-US">ioc</span><span lang="zh-CN">容器中（设置事务管理器，设置事务的传播特性及隔离机制）。</span></p> <p style="margin:0in; margin-left:1.125in; font-family:宋体; font-size:14.0pt; color:#3A3838"> &nbsp;</p> <p style="margin:0in; margin-left:1.125in; font-family:宋体; font-size:14.0pt; color:#3A3838"> &nbsp;</p> <h2 style="margin:0in; margin-left:.75in; font-family:宋体; font-size:14.0pt"> <span lang="en-US" style="color:#3A3838">b</span><span lang="zh-CN" style="color:#3A3838">、</span><span lang="en-US" style="color:#ED7D31"><strong>AOP</strong></span><span lang="zh-CN" style="color:#ED7D31"><strong>拦截需要进行事务处理的类</strong></span><br /> </h2> <p style="margin:0in; margin-left:.75in; font-family:宋体; font-size:14.0pt; color:#ED7D31"> &nbsp;</p> <p style="margin:0in; margin-left:1.125in; font-family:宋体; font-size:14.0pt; color:#3A3838"> <span lang="en-US">Spring</span><span lang="zh-CN">事务处理模块是通过</span><span lang="en-US">AOP</span><span lang="zh-CN">功能来实现声明式事务处理的，具体操作（比如事务实行的配置和读取，事务对象的抽象），用</span><span lang="en-US">TransactionProxyFactoryBean</span><span lang="zh-CN">接口来使用</span><span lang="en-US">AOP</span><span lang="zh-CN">功能，生成</span><span lang="en-US">proxy</span><span lang="zh-CN">代理对象，通过</span><span lang="en-US">TransactionInterceptor</span><span lang="zh-CN">完成对代理方法的拦截，将事务处理的功能编织到拦截的方法中。</span></p> <p style="margin:0in; margin-left:1.125in; font-family:宋体; font-size:14.0pt; color:#3A3838"> &nbsp;</p> <p style="margin:0in; margin-left:1.125in; font-family:宋体; font-size:14.0pt; color:#3A3838"> <span lang="zh-CN">读取</span><span lang="en-US">ioc</span><span lang="zh-CN">容器事务配置属性，转化为</span><span lang="en-US">spring</span><span lang="zh-CN">事务处理需要的内部数据结构（</span><span lang="en-US">TransactionAttributeSourceAdvisor</span><span lang="zh-CN">），转化为</span><span lang="en-US">TransactionAttribute</span><span lang="zh-CN">表示的数据对象。</span></p> <p style="margin:0in; margin-left:1.125in; font-family:宋体; font-size:14.0pt; color:#3A3838"> &nbsp;</p> <p style="margin:0in; margin-left:1.125in; font-family:宋体; font-size:14.0pt; color:#3A3838"> &nbsp;</p> <h2 style="margin:0in; margin-left:.75in; font-family:宋体; font-size:14.0pt"> <span lang="en-US" style="color:#3A3838">c</span><span lang="zh-CN" style="color:#3A3838">、</span><span lang="zh-CN" style="color:#ED7D31"><strong>对事物处理实现（事务的生成、提交、回滚、挂起）</strong></span><br /> </h2> <p style="margin:0in; margin-left:.75in; font-family:宋体; font-size:14.0pt; color:#ED7D31"> &nbsp;</p> <p style="margin:0in; margin-left:1.125in; font-family:宋体; font-size:14.0pt; color:#3A3838"> <span lang="en-US">spring</span><span lang="zh-CN">委托给具体的事务处理器实现。实现了一个抽象和适配。适配的具体事务处理器：</span><span lang="en-US">DataSource</span><span lang="zh-CN">数据源支持、</span><span lang="en-US">hibernate</span><span lang="zh-CN">数据源事务处理支持、</span><span lang="en-US">JDO</span><span lang="zh-CN">数据源事务处理支持，</span><span lang="en-US">JPA</span><span lang="zh-CN">、</span><span lang="en-US">JTA</span><span lang="zh-CN">数据源事务处理支持。这些支持都是通过设计</span><span lang="en-US">PlatformTransactionManager</span><span lang="zh-CN">、</span><span lang="en-US">AbstractPlatforTransaction</span><span lang="zh-CN">一系列事务处理的支持。</span></p> <p style="margin:0in; margin-left:1.125in; font-family:宋体; font-size:14.0pt; color:#3A3838"> &nbsp;</p> <p style="margin:0in; margin-left:.75in; font-size:14.0pt; color:#3A3838"><span lang="en-US" style="font-family:Calibri">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span lang="zh-CN" style="font-family:宋体">为常用数据源支持提供了一系列的</span><span lang="en-US" style="font-family:宋体">TransactionManager</span><span lang="zh-CN" style="font-family:宋体">。</span></p> <p style="margin:0in; margin-left:.75in; font-family:宋体; font-size:14.0pt; color:#3A3838"> &nbsp;</p> <p style="margin:0in; margin-left:.75in; font-family:宋体; font-size:14.0pt; color:#3A3838"> &nbsp;</p> <h2 style="margin:0in; margin-left:.75in; font-family:宋体; font-size:14.0pt"> <span lang="en-US" style="color:#3A3838">d</span><span lang="zh-CN" style="color:#3A3838">、</span><span lang="zh-CN" style="color:#ED7D31"><strong>结合</strong></span><br /> </h2> <p style="margin:0in; margin-left:.75in; font-family:宋体; font-size:14.0pt; color:#ED7D31"> &nbsp;</p> <p style="margin:0in; margin-left:1.125in; font-family:宋体; font-size:14.0pt; color:#3A3838"> <span lang="en-US">PlatformTransactionManager</span><span lang="zh-CN">实现了</span><span lang="en-US">TransactionInterception</span><span lang="zh-CN">接口，让其与</span><span lang="en-US">TransactionProxyFactoryBean</span><span lang="zh-CN">结合起来，形成一个</span><span lang="en-US">Spring</span><span lang="zh-CN">声明式事务处理的设计体系。</span></p> <p style="margin:0in; margin-left:1.125in; font-family:宋体; font-size:14.0pt; color:#3A3838"> &nbsp;</p> </h1> <p style="margin:0in; margin-left:.75in; font-family:宋体; font-size:14.0pt; color:#3A3838"> &nbsp;</p> <p style="margin:0in; margin-left:.75in; font-family:宋体; font-size:14.0pt; color:#3A3838"> <span lang="zh-CN">&nbsp; 支持不同数据源，在底层进行封装，可以做到事务即开即用，这样的好处是：即使有其他的数据源事务处理需要，</span><span lang="en-US">Spring</span><span lang="zh-CN">也提供了一种一致的方式。</span></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-52383.htm">芭比堂动物医院招聘信息（芭比堂连锁动物医院投资模式）</a></p>
+                                        <p>下一个：<a href="/news/article-52903.htm">宠物领养系统论文参考文献怎么写（宠物领养网站论文）</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-22-quantumult-x-node-share.htm" title="1月22日→20.8M/S|2025年最新免费节点Free QuantumultX订阅链接地址">1月22日→20.8M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-32126.htm" title="我所在的城市有一家宠物医院的英语作文 我所在的城市有一家宠物医院的英语作文怎么写">我所在的城市有一家宠物医院的英语作文 我所在的城市有一家宠物医院的英语作文怎么写</a></li>
+                        <li class="py-2"><a href="/news/article-40340.htm" title="中国最好的兽药厂家麻杏石甘散是全国哪个省份 兽用麻杏石甘散哪个厂家的好">中国最好的兽药厂家麻杏石甘散是全国哪个省份 兽用麻杏石甘散哪个厂家的好</a></li>
+                        <li class="py-2"><a href="/news/article-22771.htm" title="虚拟机搭建负载均衡，mysql主从复制和读写分离（三、搭建负载均衡）">虚拟机搭建负载均衡，mysql主从复制和读写分离（三、搭建负载均衡）</a></li>
+                        <li class="py-2"><a href="/news/article-27407.htm" title="动物防疫站疫苗免费打吗 动物防疫站疫苗免费打吗现在">动物防疫站疫苗免费打吗 动物防疫站疫苗免费打吗现在</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-high-speed-nodes.htm" title="12月5日→19.5M/S|2024年最新免费节点Free QuantumultX订阅链接地址">12月5日→19.5M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-quantumult-x-github.htm" title="11月7日→20M/S|2024年最新免费节点Free QuantumultX订阅链接地址">11月7日→20M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-48738.htm" title="动物疫苗价格查询官网入口网址是什么呀（动物疫苗查询真伪）">动物疫苗价格查询官网入口网址是什么呀（动物疫苗查询真伪）</a></li>
+                        <li class="py-2"><a href="/news/article-44797.htm" title="史上最简便的可以直接用的登录验证码攻略（前后端都有）">史上最简便的可以直接用的登录验证码攻略（前后端都有）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-20-free-high-speed-nodes.htm" title="1月20日→18.6M/S|2025年最新免费节点Free QuantumultX订阅链接地址">1月20日→18.6M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                </div><!-- /.about-info -->
+            </div>
+        </section> <!-- /#about -->
+        <!-- end: about us section-->
+                <!-- start: footer -->
+        <footer class="text-uppercase">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Free QuantumultX节点订阅官网</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end: footer -->
+        <!--  Necessary scripts  -->
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/smooth-scroll.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/owl.carousel.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/contact.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/script.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>
