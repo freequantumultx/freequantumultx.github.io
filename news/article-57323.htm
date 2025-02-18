@@ -1,0 +1,217 @@
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freequantumultx.github.io/news/article-57323.htm" />
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Python 图_系列之基于邻接矩阵实现广度、深度优先路径搜索算法</title>
+        <meta name="description" content="图是一种抽象数据结构，本质和树结构是一样的。 图与树相比较，图具有封闭性，可以把树结构看成是图结构的前生。在树结构中，如果把兄弟节点之间或子节点之间横向连接，便构建成一个图。 树适合描述从上向下的一对" />
+        <link rel="icon" href="/assets/website/img/freequantumultx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free QuantumultX节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freequantumultx.github.io/news/article-57323.htm" />
+    <meta property="og:site_name" content="Free QuantumultX节点订阅官网" />
+    <meta property="og:title" content="Python 图_系列之基于邻接矩阵实现广度、深度优先路径搜索算法" />
+    <meta property="og:image" content="https://freequantumultx.github.io/uploads/20240905-1/4ecf77009837e0a9cd364cdef7539230.webp" />
+        <meta property="og:release_date" content="2025-02-16T07:19:02" />
+    <meta property="og:updated_time" content="2025-02-16T07:19:02" />
+        <meta property="og:description" content="图是一种抽象数据结构，本质和树结构是一样的。 图与树相比较，图具有封闭性，可以把树结构看成是图结构的前生。在树结构中，如果把兄弟节点之间或子节点之间横向连接，便构建成一个图。 树适合描述从上向下的一对" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Python 图_系列之基于邻接矩阵实现广度、深度优先路径搜索算法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LX9T7GC1HS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LX9T7GC1HS');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="singleBlogPage">
+            <!-- site-navigation start -->
+    <nav id="mainNavigation" class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar logo -->
+                <div class="navbar-brand">
+                    <a href="/">
+                                        <span>Free QuantumultX</span>
+                                        </a>
+                </div>
+                <!-- navbar logo -->
+            </div><!-- /.navbar-header -->
+            <!-- nav links -->
+            <div class="collapse navbar-collapse" id="main-nav-collapse">
+                <ul class="nav navbar-nav navbar-right text-uppercase">
+                                        <li>
+                        <a href="/">首页</a>
+                    </li>
+                                        <li>
+                        <a href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li>
+                        <a href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li>
+                        <a href="/client.htm">客户端</a>
+                    </li>
+                                        <li>
+                        <a href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div><!-- nav links -->
+        </div><!-- /.container -->
+    </nav>
+        <!-- header begin -->
+        <header class="page-head">
+            <div class="header-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ol class="breadcrumb">
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/news/">新闻资讯</a></li>
+                                <li class="active">正文</li>
+                            </ol> <!-- end of /.breadcrumb -->
+                        </div>
+                    </div>
+                </div> <!-- /.container -->
+            </div> <!-- /.header-wrapper -->
+        </header> <!-- /.page-head -->
+        <!-- header end -->
+        <!-- start: about us section -->
+        <section id="about">
+            <div class="container">
+                <div class="about-info">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h1 class="mb-2">Python 图_系列之基于邻接矩阵实现广度、深度优先路径搜索算法</h1>
+                                            <input type="hidden" id="share-website-info" data-name="QuantumultX Node(圈X)官方节点站" data-url="https://quantumultxnode.github.io">
+                  				  				  				<p>图是一种抽象数据结构，本质和树结构是一样的。</p> <p>图与树相比较，图具有封闭性，可以把树结构看成是图结构的前生。在树结构中，如果把兄弟节点之间或子节点之间横向连接，便构建成一个图。</p> <p>树适合描述从上向下的一对多的数据结构，如公司的组织结构。</p> <p>图适合描述更复杂的多对多数据结构，如复杂的群体社交关系。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/94dfe675d1407b47ed54f7299e376de4.jpg" alt="Python 图_系列之基于邻接矩阵实现广度、深度优先路径搜索算法"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/5852e94b64b76628277f37f17df4b038.jpg" alt="Python 图_系列之基于邻接矩阵实现广度、深度优先路径搜索算法"></p> <h2 id="1-图理论">1. 图理论</h2> <p>借助计算机解决现实世界中的问题时，除了要存储现实世界中的信息，还需要正确地描述信息之间的关系。</p> <p>如在开发地图程序时，需要在计算机中正确模拟出城市与城市、或城市中各道路之间的关系图。在此基础上，才有可能通过算法计算出从一个城市到另一个城市、或从指定起点到目标点间的最佳路径。</p> <blockquote> <p>类似的还有航班路线图、火车线路图、社交交系图。</p> </blockquote> <p>图结构能很好的对现实世界中如上这些信息之间的复杂关系进行映射。以此可使用算法方便的计算出如航班线路中的最短路径、如火车线路中的最佳中转方案，如社交圈中谁与谁关系最好、婚姻网中谁与谁最般配……</p> <h3 id="11--图的概念">1.1  图的概念</h3> <p><strong>顶点：</strong>顶点也称为节点，可认为图就是顶点组成的集合。顶点本身是有数据含义的，所以顶点都会带有附加信息，称作"有效载荷"。</p> <blockquote> <p>顶点可以是现实世界中的城市、地名、站名、人……</p> </blockquote> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/ed1e075cd23c3cb5fe0d6750533e3665.jpg" alt="Python 图_系列之基于邻接矩阵实现广度、深度优先路径搜索算法"></p> <p><strong>边：</strong> 图中的边用来描述顶点之间的关系。边可以有方向也可以没有方向，有方向的边又可分为单向边和双向边。</p> <p>如下图（项点1）到（顶点2）之间的边只有一方向（箭头所示为方向），<strong>称为单向边</strong>。类似现实世界中的单向道。</p> <p>（顶点1）到（顶点2）之间的边有两个方向（双向箭头），<strong>称为双向边。</strong> 城市与城市之间的关系为双向边。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/72c33225ccb0688999133588f4dfcb4c.jpg" alt="Python 图_系列之基于邻接矩阵实现广度、深度优先路径搜索算法"></p> <p><strong>权重：</strong> 边上可以附加值信息，附加的值称为<strong>权重</strong>。有权重的边用来描述一个顶点到另一个顶点的连接强度。</p> <p>如现实生活中的地铁路线中，权重可以描述两个车站之间时间长度、公里数、票价……</p> <blockquote> <p>边描述的是顶点之间的关系，权重描述的是连接的差异性。</p> </blockquote> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/602c41c6d0494913fc6c5f77fb96aeb5.jpg" alt="Python 图_系列之基于邻接矩阵实现广度、深度优先路径搜索算法"></p> <p><strong>路径：</strong></p> <p><strong>先了解现实世界中路径概念</strong></p> <p>如：从一个城市开车去另一个城市，就需要先确定好路径。也就是<strong>从出发地到目的地要经过那些城市？要走多少里程？</strong></p> <p>可以说路径是由边连接的顶点组成的序列。因路径不只一条，所以，从一个项点到另一个项点的路径描述也不指一种。</p> <blockquote> <p><strong>在图结构中如何计算路径？</strong></p> <ul> <li> <p>无权重路径的长度是路径上的边数。</p> </li> <li> <p>有权重路径的长度是路径上的边的权重之和。</p> </li> </ul> <p>如上图从（顶点1）到（顶点3）的路径长度为 8。</p> </blockquote> <p><strong>环：</strong> 从起点出发，最后又回到起点（终点也是起点）就会形成一个环，环是一种特殊的路径。如上<code>(V1, V2, V3, V1)</code> 就是一个环。</p> <p><strong>图的类型：</strong></p> <p>综上所述，图可以分为如下几类：</p> <ul> <li><strong>有向图：</strong> 边有方向的图称为有向图。</li> <li><strong>无向图：</strong> 边没有方向的图称为无向图。</li> <li><strong>加权图：</strong> 边上面有权重信息的图称为加权图。</li> <li><strong>无环图：</strong> 没有环的图被称为无环图。</li> <li><strong>有向无环图：</strong> 没有环的有向图，简称 DAG。</li> </ul> <h3 id="12-定义图">1.2 定义图</h3> <p>根据图的特性，图数据结构中至少要包含两类信息：</p> <ul> <li> <p>所有顶点构成集合信息，这里用<strong>V</strong> 表示（如地图程序中，所有城市构在顶点集合）。</p> </li> <li> <p>所有边构成集合信息，这里用 E 表示（城市与城市之间的关系描述）。</p> <blockquote> <p><strong>如何描述边？</strong></p> <p>边用来表示项点之间的关系。所以一条边可以包括 3 个元数据（起点，终点，权重）。当然，权重是可以省略的，但一般研究图时，都是指的加权图。</p> </blockquote> </li> </ul> <p>如果用<code>G</code> 表示图，则<code>G = (V, E)</code>。每一条边可以用二元组<code>(fv, ev)</code> 也可以使用 三元组<code>（fv,ev,w）</code> 描述。</p> <blockquote> <p><strong><code>fv</code></strong> 表示起点，<strong><code>ev</code></strong>  表示终点。且<code>fv</code>，<code>ev</code> 数据必须引用于<code>V</code> 集合。</p> </blockquote> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/c453d8f16e6974d06180577d6c2180ed.jpg" alt="Python 图_系列之基于邻接矩阵实现广度、深度优先路径搜索算法"></p> <p>如上的图结构可以描述如下：</p> <pre><code class="language-python"># 5 个顶点 V={A0,B1,C2,D3,E4} # 7 条边 E={ (A0,B1,3),(B1,C2,4),(C2,D3,6),(C2,E4,1),(D3,E4,2),(A0,D3,5),(E4,B1,7)}</code></pre> <h3 id="13--图的抽象数据结构">1.3  图的抽象数据结构</h3> <p>图的抽象数据描述中至少要有的方法：</p> <ul> <li> <p><code>Graph ( )</code> ： 用来创建一个新图。</p> </li> <li> <p><code>add_vertex( vert )</code>：向图中添加一个新节点，参数应该是一个节点类型的对象。</p> </li> <li> <p><code>add_edge(fv，tv )</code>：在 2 个项点之间建立起边关系。</p> </li> <li> <p><code>add_edge(fv，tv，w )</code>：在 2 个项点之间建立起一条边并指定连接权重。</p> </li> <li> <p><code>find_vertex( key )</code>: 根据关键字 key 在图中查找顶点。</p> </li> <li> <p><code>find_vertexs( )</code>：查询所有顶点信息。</p> </li> <li> <p><code>find_path( fv,tv)</code>：查找.从一个顶点到另一个顶点之间的路径。</p> </li> </ul> <h2 id="2-图的存储实现">2. 图的存储实现</h2> <p>图的存储实现主流有 2 种：邻接矩阵和链接表，本文主要介绍邻接矩阵。</p> <h3 id="21-邻接矩阵">2.1 邻接矩阵</h3> <p>使用二维矩阵（数组）存储顶点之间的关系。</p> <p>如<code>graph[5][5]</code> 可以存储 5 个顶点的关系数据，行号和列号表示顶点，第  v 行的第 w 列交叉的单元格中的值表示从顶点 v 到顶点 w 的边的权重，如<code>grap[2][3]=6</code> 表示  C2 顶点和 D3 顶点的有连接（相邻），权重为 6。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/50ed2ff1c9218814f98414175d6d6671.jpg" alt="Python 图_系列之基于邻接矩阵实现广度、深度优先路径搜索算法"></p> <p>相邻矩阵的优点就是简单，可以清晰表示那些顶点是相连的。因不是每两两个顶点之间会有连接，会导致大量的空间闲置，称这种矩阵为”稀疏“的。</p> <p>只有当每一个顶点和其它顶点都有关系时，矩阵才会填满。所以，使用这种结构存储图数据，对于关系不是很复杂的图结构而言，会产生大量的空间浪费。</p> <p>邻接矩阵适合表示关系复杂的图结构，如互联网上网页之间的链接、社交圈中人与人之间的社会关系……</p> <h3 id="22-编码实现邻接矩阵">2.2 编码实现邻接矩阵</h3> <p>因顶点本身有数据含义，需要先定义顶点类型。</p> <p><strong>顶点类：</strong></p> <pre><code class="language-python">""" 节（顶）点类 """ class Vertex:     def __init__(self, name, v_id=0):         # 顶点的编号         self.v_id = v_id         # 顶点的名称         self.v_name = name         # 是否被访问过:False 没有 True:有         self.visited = False      # 自我显示     def __str__(self):         return '[编号为 {0}，名称为 {1} ] 的顶点'.format(self.v_id, self.v_name)</code></pre> <p>顶点类中<code>v_id</code> 和<code>v_name</code> 很好理解。为什么要添加一个<code>visited</code>？</p> <p>这个变量用来记录顶点在路径搜索过程中是否已经被搜索过，避免重复搜索计算。</p> <p><strong>图类：</strong>图类的方法较多，这里逐方法介绍。</p> <ol> <li><strong>初始化方法</strong></li> </ol> <pre><code class="language-python">class Graph:     """     nums:相邻矩阵的大小     """      def __init__(self, nums):         # 一维列表，保存节点，最多只能有 nums 个节点         self.vert_list = []         # 二维列表，存储顶点及顶点间的关系(权重)         # 初始权重为 0 ，表示节点与节点之间还没有建立起关系         self.matrix = [[0] * nums for _ in range(nums)]         # 顶点个数         self.v_nums = 0         # 使用队列模拟队列或栈，用于广度、深度优先搜索算法         self.queue_stack = []         # 保存搜索到的路径         self.searchPath = []              # 暂省略……</code></pre> <p>初始化方法用来初始化图中的数据类型：</p> <ul> <li> <p>一维列表<code>vert_list</code> 保存所有顶点数据。</p> </li> <li> <p>二维列表<code>matrix</code> 保存顶点与顶点之间的关系数据。</p> </li> <li> <p><code>queue_stack</code> 使用列表模拟队列或栈，用于后续的广度搜索和深度搜索。</p> <blockquote> <p><strong>怎么使用列表模拟队列或栈？</strong></p> <p>列表有<code>append()</code>、<code>pop()</code> 2 个很价值的方法。</p> <p><code>append()</code> 用来向列表中添加数据，且每次都是从列表最后面添加。</p> <p><code>pop()</code> 默认从列表最后面删除且弹出数据，<code>pop(参数)</code> 可以提供索引值用来从指定位置删除且弹出数据。</p> <p><strong>使用<code>append()</code> 和<code>pop()</code> 方法就能模拟栈，从同一个地方进出数据。</strong></p> <p><strong>使用<code>append()</code> 和<code>pop(0)</code> 方法就能模拟队列，从后面添加数据，从最前面获取数据</strong></p> </blockquote> </li> <li> <p><code>searchPath</code> ： 用来保存使用广度或深度优先路径搜索中的结果。</p> </li> </ul> <ol start="2"> <li><strong>添加新节（顶）点方法：</strong></li> </ol> <pre><code class="language-python">    """     添加新顶点     """     def add_vertex(self, vert):         if vert in self.vert_list:             # 已经存在             return         if self.v_nums &gt;= len(self.matrix):             # 超过相邻矩阵所能存储的节点上限             return         # 顶点的编号内部生成         vert.v_id = self.v_nums         self.vert_list.append(vert)         # 数量增一         self.v_nums += 1</code></pre> <p>上述方法注意一点，节点的编号由图内部逻辑提供，便于节点编号顺序的统一。</p> <ol start="3"> <li> <p><strong>添加边方法</strong></p> <p>此方法是邻接矩阵表示法的核心逻辑。</p> </li> </ol> <pre><code class="language-python">  '''     添加节点与节点之间的边，     如果是无权重图，统一设定为 1      '''     def add_edge(self, from_v, to_v):         # 如果节点不存在         if from_v not in self.vert_list:             self.add_vertex(from_v)         if to_v not in self.vert_list:             self.add_vertex(to_v)         # from_v 节点的编号为行号，to_v 节点的编号为列号         self.matrix[from_v.v_id][to_v.v_id] = 1      '''     添加有权重的边     '''     def add_edge(self, from_v, to_v, weight):         # 如果节点不存在         if from_v not in self.vert_list:             self.add_vertex(from_v)         if to_v not in self.vert_list:             self.add_vertex(to_v)         # from_v 节点的编号为行号，to_v 节点的编号为列号         self.matrix[from_v.v_id][to_v.v_id] = weight</code></pre> <p>添加边信息的方法有 2 个，一个用来添加无权重边，一个用来添加有权重的边。</p> <ol start="4"> <li> <p><strong>查找某节点</strong></p> <p>使用线性查找法从节点集合中查找某一个节点。</p> </li> </ol> <pre><code class="language-python">    '''     根据节点编号返回节点     '''     def find_vertex(self, v_id):         if v_id &gt;= 0 or v_id &lt;= self.v_nums:             # 节点编号必须存在             return [tmp_v for tmp_v in self.vert_list if tmp_v.v_id == v_id][0]</code></pre> <ol start="5"> <li><strong>查询所有节点</strong></li> </ol> <pre><code class="language-python">  '''     输出所有顶点信息     '''     def find_only_vertexes(self):         for tmp_v in self.vert_list:             print(tmp_v)</code></pre> <p>此方法仅为了查询方便。</p> <ol start="6"> <li><strong>查询节点之间的关系</strong></li> </ol> <pre><code class="language-python">    '''     迭代节点与节点之间的关系（边）     '''     def find_vertexes(self):         for tmp_v in self.vert_list:             edges = self.matrix[tmp_v.v_id]             for col in range(len(edges)):                 w = edges[col]                 if w != 0:                     print(tmp_v, '和', self.vert_list[col], '的权重为：', w)</code></pre> <ol start="7"> <li><strong>测试代码：</strong></li> </ol> <pre><code class="language-python">if __name__ == "__main__":     # 初始化图对象     g = Graph(5)     # 添加顶点     for _ in range(len(g.matrix)):         v_name = input("顶点的名称（ q 为退出）：")         if v_name == 'q':             break         v = Vertex(v_name)         g.add_vertex(v)      # 节点之间的关系     infos = [(0, 1, 3), (0, 3, 5), (1, 2, 4), (2, 3, 6), (2, 4, 1), (3, 4, 2), (4, 1, 7)]     for i in infos:         v = g.find_vertex(i[0])         v1 = g.find_vertex(i[1])         g.add_edge(v, v1, i[2])     # 输出顶点及边a     print("-----------顶点与顶点关系--------------")     g.find_vertexes()     '''     输出结果：     顶点的名称（ q 为退出）：A     顶点的名称（ q 为退出）：B     顶点的名称（ q 为退出）：C     顶点的名称（ q 为退出）：D     顶点的名称（ q 为退出）：E     [编号为 0，名称为 A ] 的顶点 和 [编号为 1，名称为 B ] 的顶点 的权重为： 3 [编号为 0，名称为 A ] 的顶点 和 [编号为 3，名称为 D ] 的顶点 的权重为： 5 [编号为 1，名称为 B ] 的顶点 和 [编号为 2，名称为 C ] 的顶点 的权重为： 4 [编号为 2，名称为 C ] 的顶点 和 [编号为 3，名称为 D ] 的顶点 的权重为： 6 [编号为 2，名称为 C ] 的顶点 和 [编号为 4，名称为 E ] 的顶点 的权重为： 1 [编号为 3，名称为 D ] 的顶点 和 [编号为 4，名称为 E ] 的顶点 的权重为： 2 [编号为 4，名称为 E ] 的顶点 和 [编号为 1，名称为 B ] 的顶点 的权重为： 7     '''</code></pre> <h2 id="3-搜索路径">3. 搜索路径</h2> <p>在图中经常做的操作，就是查找从一个顶点到另一个顶点的路径。如<strong>怎么查找到 A0 到 E4 之间的路径长度：</strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/446ccd35222d6331c587be66dc8d7403.jpg" alt="Python 图_系列之基于邻接矩阵实现广度、深度优先路径搜索算法"></p> <p>从人的直观思维角度查找一下，可以找到如下路径：</p> <ul> <li><code>{A0，B1，C2，E4}</code>路径长度为 8。</li> <li><code>{A0，D3，E4}</code> 路径长度为 7。</li> <li><code>{A0，B1，C2，D3，E4}</code> 路径长度为 15。</li> </ul> <p>人的思维是知识性、直观性思维，在路径查找时不存在所谓的尝试或碰壁问题。而计算机是试探性思维，就会出现这条路不通，再找另一条路的现象。</p> <p>所以路径算法中常常会以错误为代价，在查找过程中会走一些弯路。常用的路径搜索算法有 2 种：</p> <ul> <li><strong>广度优先搜索。</strong></li> <li><strong>深度优先搜索。</strong></li> </ul> <h3 id="31-广度优先搜索">3.1 广度优先搜索</h3> <p>先看一下广度优先搜索的示意图：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/ab86f60cbb83940589e0111bc644ffa9.jpg" alt="Python 图_系列之基于邻接矩阵实现广度、深度优先路径搜索算法"></p> <p>广度优先搜索的基本思路：</p> <ul> <li>确定出发点，本案例是<strong>A0 顶点</strong>。</li> <li>以出发点相邻的顶点为候选点，并存储至队列。</li> <li>从队列中每拿出一个顶点后，再把与此顶点相邻的其它顶点做为候选点存储于队列。</li> <li>不停重复上述过程，至到找到目标顶点或队列为空。</li> </ul> <p>使用广度搜索到的路径与候选节点进入队列的先后顺序有关系。如第 1 步确定候选节点时<code>B1</code> 和<code>D3</code> 谁先进入队列，对于后面的查找也会有影响。</p> <p>上图使用广度搜索可找到<code>A0~E4</code> 路径是：</p> <ul> <li><code>{A0，B1，D3，C2，E4}</code></li> </ul> <p>其实<code>{A0，B1，C2，E4}</code> 也是一条有效路径，有可能搜索不出来，这里因为搜索到<code>B1</code> 后不会马上搜索<code>C2</code>，因为<code>B3</code> 先于<code>C2</code> 进入，广度优先搜索算法只能保证找到路径，而不能保存找到最佳路径。</p> <p><strong>编码实现广度优先搜索：</strong></p> <p>广度优先搜索需要借助队列临时存储选节点，本文使用列表模拟队列。</p> <p>在图类中实现广度优先搜索算法的方法：</p> <pre><code class="language-python">class Graph():          # 省略其它代码      '''     广度优先搜索算法     '''     def bfs(self, from_v, to_v):         # 查找与 fv 相邻的节点         self.find_neighbor(from_v)         # 临时路径         lst_path = [from_v]         # 重复条件：队列不为空         while len(self.queue_stack) != 0:             # 从队列中一个节点（模拟队列）             tmp_v = self.queue_stack.pop(0)             # 添加到列表中             lst_path.append(tmp_v)             # 是不是目标节点             if tmp_v.v_id == to_v.v_id:                 self.searchPath.append(lst_path)                 print('找到一条路径', [v_.v_id for v_ in lst_path])                 lst_path.pop()             else:                 self.find_neighbor(tmp_v)     '''     查找某一节点的相邻节点，并添加到队列（栈）中     '''     def find_neighbor(self, find_v):         if find_v.visited:             return         find_v.visited = True         # 找到保存 find_v 节点相邻节点的列表         lst = self.matrix[find_v.v_id]         for idx in range(len(lst)):             if lst[idx] != 0:                 # 权重不为 0 ，可判断相邻                 self.queue_stack.append(self.vert_list[idx])</code></pre> <p>广度优先搜索过程中，需要随时获取与当前节点相邻的节点，<code>find_neighbor()</code> 方法的作用就是用来把当前节点的相邻节点压入队列中。</p> <p><strong>测试广度优先搜索算法：</strong></p> <pre><code class="language-python">if __name__ == "__main__":     # 初始化图对象     g = Graph(5)     # 添加顶点     for _ in range(len(g.matrix)):         v_name = input("顶点的名称（ q 为退出）：")         if v_name == 'q':             break         v = Vertex(v_name)         g.add_vertex(v)      # 节点之间的关系     infos = [(0, 1, 3), (0, 3, 5), (1, 2, 4), (2, 3, 6), (2, 4, 1), (3, 4, 2), (4, 1, 7)]     for i in infos:         v = g.find_vertex(i[0])         v1 = g.find_vertex(i[1])         g.add_edge(v, v1, i[2])      print("----------- 广度优先路径搜索--------------")     f_v = g.find_vertex(0)     t_v = g.find_vertex(4)     g.bfs(f_v,t_v)     '''     输出结果     顶点的名称（ q 为退出）：A     顶点的名称（ q 为退出）：B     顶点的名称（ q 为退出）：C     顶点的名称（ q 为退出）：D     顶点的名称（ q 为退出）：E       ----------- 广度优先路径搜索--------------     找到一条路径 [0, 1, 3, 2, 4]     找到一条路径 [0, 1, 3, 2, 3, 4]     '''</code></pre> <p><strong>使用递归实现广度优先搜索算法：</strong></p> <pre><code class="language-python">   '''     递归方式实现广度搜索     '''     def bfs_dg(self, from_v, to_v):         self.searchPath.append(from_v)         if from_v.v_id != to_v.v_id:             self.find_neighbor(from_v)         if len(self.queue_stack) != 0:             self.bfs_dg(self.queue_stack.pop(0), to_v)</code></pre> <h3 id="32-深度优先搜索算法">3.2 深度优先搜索算法</h3> <p>先看一下深度优先算法的示意图。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/7e55c37cdccf39d3c33b9444455e63b4.jpg" alt="Python 图_系列之基于邻接矩阵实现广度、深度优先路径搜索算法"></p> <p>深度优先搜索算法与广度优先搜索算法不同之处：候选节点是放在栈中的。因栈是先进后出，所以，搜索到的节点顺序不一样。</p> <p><strong>使用循环实现深度优先搜索算法：</strong></p> <p>深度优先搜索算法需要用到栈，本文使用列表模拟。</p> <pre><code class="language-python">    '''     深度优先搜索算法     使用栈存储下一个需要查找的节点     '''     def dfs(self, from_v, to_v):         # 查找与 from_v 相邻的节点         self.find_neighbor(from_v)         # 临时路径         lst_path = [from_v]         # 重复条件：栈不为空         while len(self.queue_stack) != 0:             # 从栈中取一个节点（模拟栈）             tmp_v = self.queue_stack.pop()             # 添加到列表中             lst_path.append(tmp_v)             # 是不是目标节点             if tmp_v.v_id == to_v.v_id:                 self.searchPath.append(lst_path)                 print('找到一条路径:', [v_.v_id for v_ in lst_path])                 lst_path.pop()             else:                 self.find_neighbor(tmp_v)</code></pre> <p><strong>测试：</strong></p> <pre><code class="language-python">if __name__ == "__main__":     # 初始化图对象     g = Graph(5)     # 添加顶点     for _ in range(len(g.matrix)):         v_name = input("顶点的名称（ q 为退出）：")         if v_name == 'q':             break         v = Vertex(v_name)         g.add_vertex(v)      # 节点之间的关系     infos = [(0, 1, 3), (0, 3, 5), (1, 2, 4), (2, 3, 6), (2, 4, 1), (3, 4, 2), (4, 1, 7)]     for i in infos:         v = g.find_vertex(i[0])         v1 = g.find_vertex(i[1])         g.add_edge(v, v1, i[2])     # 输出顶点及边a     print("-----------顶点与顶点关系--------------")     g.find_vertexes()      print("----------- 深度优先路径搜索--------------")     f_v = g.find_vertex(0)     t_v = g.find_vertex(4)     g.dfs(f_v, t_v)     '''     输出结果     顶点的名称（ q 为退出）：A     顶点的名称（ q 为退出）：B     顶点的名称（ q 为退出）：C     顶点的名称（ q 为退出）：D     顶点的名称（ q 为退出）：E     -----------顶点与顶点关系-------------- [编号为 0，名称为 A ] 的顶点 和 [编号为 1，名称为 B ] 的顶点 的权重为： 3 [编号为 0，名称为 A ] 的顶点 和 [编号为 3，名称为 D ] 的顶点 的权重为： 5 [编号为 1，名称为 B ] 的顶点 和 [编号为 2，名称为 C ] 的顶点 的权重为： 4 [编号为 2，名称为 C ] 的顶点 和 [编号为 3，名称为 D ] 的顶点 的权重为： 6 [编号为 2，名称为 C ] 的顶点 和 [编号为 4，名称为 E ] 的顶点 的权重为： 1 [编号为 3，名称为 D ] 的顶点 和 [编号为 4，名称为 E ] 的顶点 的权重为： 2 [编号为 4，名称为 E ] 的顶点 和 [编号为 1，名称为 B ] 的顶点 的权重为： 7     ----------- 深度优先路径搜索--------------     找到一条路径: [0, 3, 4]     找到一条路径: [0, 3, 1, 2, 4]     '''</code></pre> <p><strong>使用递归实现深度优先搜索算法：</strong></p> <pre><code class="language-python">    '''     递归实现深度搜索算法     '''     def def_dg(self, from_v, to_v):         self.searchPath.append(from_v)         if from_v.v_id != to_v.v_id:             # 查找与 from_v 节点相连的子节点             lst = self.find_neighbor_(from_v)             if lst is not None:                 for tmp_v in lst[::-1]:                     self.def_dg(tmp_v, to_v)     """     查找某一节点的相邻节点，以列表方式返回     """     def find_neighbor_(self, find_v):         if find_v.visited:             return         find_v.visited = True         # 查找与 find_v 节点相邻的节点         lst = self.matrix[find_v.v_id]         return [self.vert_list[idx] for idx in range(len(lst)) if lst[idx] != 0]</code></pre> <p>递归实现时，不需要使用全局栈，只需要获到当前节点的相邻节点便可。</p> <h2 id="4-总结">4. 总结</h2> <p>图是一种很重要的数据结构，因这个世界中万事万物之间的关系并不是简单的你和我，我和你的关系，本质都是错综复杂的。</p> <p>图能准确的映射现实世界的这种错综复杂关系，为计算机处理现实世界的问题提供了可能，也拓展了计算机在现实世界的应用领域。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-57322.htm">pandas高阶应用</a></p>
+                                        <p>下一个：<a href="/news/article-57888.htm">宠物店领养协议书范本 宠物店领养协议书范本图片</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-48738.htm" title="动物疫苗价格查询官网入口网址是什么呀（动物疫苗查询真伪）">动物疫苗价格查询官网入口网址是什么呀（动物疫苗查询真伪）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-29-quantumult-x-node-share.htm" title="12月29日→19.1M/S|2024年最新免费节点Free QuantumultX订阅链接地址">12月29日→19.1M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-quantumult-x-github.htm" title="11月7日→20M/S|2024年最新免费节点Free QuantumultX订阅链接地址">11月7日→20M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-38858.htm" title="宠物粮生产厂家排名榜前十名有哪些（宠物粮食生产厂家）">宠物粮生产厂家排名榜前十名有哪些（宠物粮食生产厂家）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-28-free-quantumult-x-node.htm" title="12月28日→22.1M/S|2024年最新免费节点Free QuantumultX订阅链接地址">12月28日→22.1M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-53985.htm" title="关于feign调用传递header的解决方法">关于feign调用传递header的解决方法</a></li>
+                        <li class="py-2"><a href="/news/article-44303.htm" title="Goland proto文件 File Watch 自动生成">Goland proto文件 File Watch 自动生成</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-3-quantumult-x-node.htm" title="2月3日→19.7M/S|2025年最新免费节点Free QuantumultX订阅链接地址">2月3日→19.7M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-27-quantumult-x-node-windows.htm" title="1月27日→22.6M/S|2025年最新免费节点Free QuantumultX订阅链接地址">1月27日→22.6M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-50282.htm" title="动物园兽医师的职责是什么（动物园兽医岗位职责）">动物园兽医师的职责是什么（动物园兽医岗位职责）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                </div><!-- /.about-info -->
+            </div>
+        </section> <!-- /#about -->
+        <!-- end: about us section-->
+                <!-- start: footer -->
+        <footer class="text-uppercase">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Free QuantumultX节点订阅官网</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end: footer -->
+        <!--  Necessary scripts  -->
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/smooth-scroll.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/owl.carousel.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/contact.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/script.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>
