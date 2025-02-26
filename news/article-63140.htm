@@ -1,0 +1,217 @@
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freequantumultx.github.io/news/article-63140.htm" />
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>NodeJS中Express框架实现用户登录，注册，及接口token授权验证</title>
+        <meta name="description" content="后端开发中，用户登录，注册，及其他接口的token验证是必需的，以前开发时会在用户登录时存一个session，但是现在token验证的方式更多也更好。这篇文章教大家实现密码加密保存及解密验证，还有to" />
+        <link rel="icon" href="/assets/website/img/freequantumultx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free QuantumultX节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freequantumultx.github.io/news/article-63140.htm" />
+    <meta property="og:site_name" content="Free QuantumultX节点订阅官网" />
+    <meta property="og:title" content="NodeJS中Express框架实现用户登录，注册，及接口token授权验证" />
+    <meta property="og:image" content="https://freequantumultx.github.io/uploads/20240905-1/8771061ce45c44fc58415068d99a4848.webp" />
+        <meta property="og:release_date" content="2025-02-26T08:33:01" />
+    <meta property="og:updated_time" content="2025-02-26T08:33:01" />
+        <meta property="og:description" content="后端开发中，用户登录，注册，及其他接口的token验证是必需的，以前开发时会在用户登录时存一个session，但是现在token验证的方式更多也更好。这篇文章教大家实现密码加密保存及解密验证，还有to" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="NodeJS中Express框架实现用户登录，注册，及接口token授权验证">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LX9T7GC1HS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LX9T7GC1HS');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="singleBlogPage">
+            <!-- site-navigation start -->
+    <nav id="mainNavigation" class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar logo -->
+                <div class="navbar-brand">
+                    <a href="/">
+                                        <span>Free QuantumultX</span>
+                                        </a>
+                </div>
+                <!-- navbar logo -->
+            </div><!-- /.navbar-header -->
+            <!-- nav links -->
+            <div class="collapse navbar-collapse" id="main-nav-collapse">
+                <ul class="nav navbar-nav navbar-right text-uppercase">
+                                        <li>
+                        <a href="/">首页</a>
+                    </li>
+                                        <li>
+                        <a href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li>
+                        <a href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li>
+                        <a href="/client.htm">客户端</a>
+                    </li>
+                                        <li>
+                        <a href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div><!-- nav links -->
+        </div><!-- /.container -->
+    </nav>
+        <!-- header begin -->
+        <header class="page-head">
+            <div class="header-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ol class="breadcrumb">
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/news/">新闻资讯</a></li>
+                                <li class="active">正文</li>
+                            </ol> <!-- end of /.breadcrumb -->
+                        </div>
+                    </div>
+                </div> <!-- /.container -->
+            </div> <!-- /.header-wrapper -->
+        </header> <!-- /.page-head -->
+        <!-- header end -->
+        <!-- start: about us section -->
+        <section id="about">
+            <div class="container">
+                <div class="about-info">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h1 class="mb-2">NodeJS中Express框架实现用户登录，注册，及接口token授权验证</h1>
+                                            <input type="hidden" id="share-website-info" data-name="QuantumultX Node(圈X)官方节点站" data-url="https://quantumultxnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <blockquote> <p>后端开发中，用户登录，注册，及其他接口的token验证是必需的，以前开发时会在用户登录时存一个session，但是现在token验证的方式更多也更好。这篇文章教大家实现密码加密保存及解密验证，还有token生成及验证。</p> </blockquote> <p>安装所需依赖模块</p> <pre><code>npm i bcrypt jsonwebtoken </code></pre> <h3> <a id="1_tokentoken_8" rel="nofollow"></a>1. 登录时token的生成及其他接口调取时token的验证工具函数定义</h3> <p>在util文件创建个jwt.js文件</p> <pre><code>const jwt = require('jsonwebtoken')  const jwtKey = 'junkaicool' // token生成的密匙，根据自己需求定义  const jwtSign = (data) =&gt; { // token生成函数，有效时间为一个小时   const token = jwt.sign(data, jwtKey, {expiresIn: 60 * 60})   return token }  const jwtCheck = (req, res, next) =&gt; { // token验证函数   const token = req.headers.token   jwt.verify(token, jwtKey, (err, data) =&gt; {     if (err) {       res.send({         code: '999999',         msg: 'token无效'       })     } else {       req.jwtInfo = data       next()     }   }) }  module.exports = {   jwtSign,   jwtCheck } </code></pre> <h3> <a id="2_41" rel="nofollow"></a>2.注册接口密码加密</h3> <p>在定义用户注册接口时使用<strong>bcrypt</strong>对密码进行加密.</p> <ol> <li>引入bcrypt</li> </ol> <pre><code>const bcrypt = require('bcrypt') </code></pre> <ol start="2"> <li>在注册接口中使用bcrypt加密</li> </ol> <pre><code>router.post('/reg', (req, res) =&gt; {   const {username, password} = req.body   if (username &amp;&amp; password) {     const hashPwd = bcrypt.hashSync(password, 10) // 使用bcrypt.hashSync方法生成密文密码     userModel.create({       username, password: hashPwd     }, (err, data) =&gt; {       if (err) {         res.send({           code: '111112',           msg: '注册失败'         })       } else {         res.send({           code: '000000',           msg: '注册成功'         })       }     })   } else {     res.send({       code: '111111',       msg: '参数错误'     })   } }) </code></pre> <h3> <a id="3token_78" rel="nofollow"></a>3.登录接口密码解密,并获取token</h3> <ol> <li>引入bcrypt和jwtSign函数</li> </ol> <pre><code>const bcrypt = require('bcrypt') const {jwtSign} = require('../util/jwt') </code></pre> <ol start="2"> <li>在登录接口中使用bcrypt解密</li> </ol> <pre><code>router.post('/login', (req, res) =&gt; {   const {username, password} = req.body   if (username &amp;&amp; password) {     userModel.find({username}, (err, data) =&gt; {       if (err || !data.length) {         res.send({           code: '111112',           msg: '登录失败'         })       } else {         const isPwdValid = bcrypt.compareSync(password, data[0].password) // 使用bcrypt.compareSync方法验证密码         if (isPwdValid) {           const token = jwtSign({_id: data[0]._id}) // 用引入的jwtSign方法生成token并返回           res.send({             code: '000000',             msg: '登录成功',             data: {               token             }           })         } else {           res.send({             code: '111113',             msg: '密码错误'           })         }       }     })   } else {     res.send({       code: '111111',       msg: '参数错误'     })   } }) </code></pre> <h3> <a id="4jwtCheck__124" rel="nofollow"></a>4.在需要用户登录验证的接口引入jwtCheck ，在并接口中间件验证</h3> <ol> <li>引入jwtCheck函数</li> </ol> <pre><code>const {jwtCheck} = require('../util/jwt') </code></pre> <p>在接口中间件使用验证函数，实例如下</p> <pre><code>router.get('/list', jwtCheck, (req, res) =&gt; {   res.send({     code: '000000',     msg: '验证成功'   }) }) </code></pre> <p>到此我们就实现了用户登录，注册，及token的生成和验证</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-62553.htm">三国杀里面限定技能用几次（三国杀中限定技可以用几次）</a></p>
+                                        <p>下一个：<a href="/news/article-63141.htm">动物注射疫苗注意事项有哪些内容和要求（动物疫苗使用时的注意事项有哪些）</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-44304.htm" title="被猫抓了一下出了点血可以不***吗（被猫抓了一下出了点血可以不***吗多少钱）">被猫抓了一下出了点血可以不***吗（被猫抓了一下出了点血可以不***吗多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-1-quantumult-x-node.htm" title="1月1日→22.1M/S|2025年最新免费节点Free QuantumultX订阅链接地址">1月1日→22.1M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-24-node-share.htm" title="1月24日→18.9M/S|2025年最新免费节点Free QuantumultX订阅链接地址">1月24日→18.9M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-46288.htm" title="Jenkins自动化部署Vue项目的方法实现_vue.js">Jenkins自动化部署Vue项目的方法实现_vue.js</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-quantumult-x-node-windows.htm" title="1月12日→18.5M/S|2025年最新免费节点Free QuantumultX订阅链接地址">1月12日→18.5M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-quantumult-x-node-windows.htm" title="11月30日→21.8M/S|2024年最新免费节点Free QuantumultX订阅链接地址">11月30日→21.8M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-27-quantumult-x-node-windows.htm" title="1月27日→22.6M/S|2025年最新免费节点Free QuantumultX订阅链接地址">1月27日→22.6M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-node-share-links.htm" title="1月4日→18.9M/S|2025年最新免费节点Free QuantumultX订阅链接地址">1月4日→18.9M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-54538.htm" title="苏州宠物领养中心领养要钱吗（苏州宠物狗领养）">苏州宠物领养中心领养要钱吗（苏州宠物狗领养）</a></li>
+                        <li class="py-2"><a href="/news/article-37383.htm" title="东北农大动物医院电话号码查询结果（东北农大动物医院电话号码查询结果是多少）">东北农大动物医院电话号码查询结果（东北农大动物医院电话号码查询结果是多少）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                </div><!-- /.about-info -->
+            </div>
+        </section> <!-- /#about -->
+        <!-- end: about us section-->
+                <!-- start: footer -->
+        <footer class="text-uppercase">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Free QuantumultX节点订阅官网</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end: footer -->
+        <!--  Necessary scripts  -->
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/smooth-scroll.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/owl.carousel.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/contact.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/script.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>
