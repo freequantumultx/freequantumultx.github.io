@@ -1,0 +1,220 @@
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freequantumultx.github.io/news/article-64985.htm" />
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>java8新特性Stream流中anyMatch和allMatch和noneMatch的区别详解</title>
+        <meta name="description" content="判断数据列表中是否存在任意一个元素符合设置的predicate条件，如果是就返回true，否则返回false。  接口定义：   boolean anyMatch(Predicate&lt;? sup" />
+        <link rel="icon" href="/assets/website/img/freequantumultx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free QuantumultX节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freequantumultx.github.io/news/article-64985.htm" />
+    <meta property="og:site_name" content="Free QuantumultX节点订阅官网" />
+    <meta property="og:title" content="java8新特性Stream流中anyMatch和allMatch和noneMatch的区别详解" />
+    <meta property="og:image" content="https://freequantumultx.github.io/uploads/20240905-1/ffe0270ec11aad2bec90957ccff416de.webp" />
+        <meta property="og:release_date" content="2025-03-01T06:58:50" />
+    <meta property="og:updated_time" content="2025-03-01T06:58:50" />
+        <meta property="og:description" content="判断数据列表中是否存在任意一个元素符合设置的predicate条件，如果是就返回true，否则返回false。  接口定义：   boolean anyMatch(Predicate&lt;? sup" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java8新特性Stream流中anyMatch和allMatch和noneMatch的区别详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LX9T7GC1HS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LX9T7GC1HS');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="singleBlogPage">
+            <!-- site-navigation start -->
+    <nav id="mainNavigation" class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar logo -->
+                <div class="navbar-brand">
+                    <a href="/">
+                                        <span>Free QuantumultX</span>
+                                        </a>
+                </div>
+                <!-- navbar logo -->
+            </div><!-- /.navbar-header -->
+            <!-- nav links -->
+            <div class="collapse navbar-collapse" id="main-nav-collapse">
+                <ul class="nav navbar-nav navbar-right text-uppercase">
+                                        <li>
+                        <a href="/">首页</a>
+                    </li>
+                                        <li>
+                        <a href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li>
+                        <a href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li>
+                        <a href="/client.htm">客户端</a>
+                    </li>
+                                        <li>
+                        <a href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div><!-- nav links -->
+        </div><!-- /.container -->
+    </nav>
+        <!-- header begin -->
+        <header class="page-head">
+            <div class="header-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ol class="breadcrumb">
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/news/">新闻资讯</a></li>
+                                <li class="active">正文</li>
+                            </ol> <!-- end of /.breadcrumb -->
+                        </div>
+                    </div>
+                </div> <!-- /.container -->
+            </div> <!-- /.header-wrapper -->
+        </header> <!-- /.page-head -->
+        <!-- header end -->
+        <!-- start: about us section -->
+        <section id="about">
+            <div class="container">
+                <div class="about-info">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h1 class="mb-2">java8新特性Stream流中anyMatch和allMatch和noneMatch的区别详解</h1>
+                                            <input type="hidden" id="share-website-info" data-name="QuantumultX Node(圈X)官方节点站" data-url="https://quantumultxnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p>判断数据列表中是否存在任意一个元素符合设置的predicate条件，如果是就返回true，否则返回false。</p> <ul> <li>接口定义： <ul> <li> <p>boolean anyMatch(Predicate&lt;? super T&gt; predicate);</p> </li> </ul> </li> <li>方法描述： <ul> <li> <p>在anyMatch 接口定义中是接收 Predicate 类型参数，在Lamdba表达式中 Predicate&lt;T&gt; 是接收一个T类型参数，然后经过逻辑验证返回布尔值结果。这里anyMatch表示，判断的条件里，任意一个元素符合条件，就返回true值。</p> </li> </ul> </li> <li> <p>使用场景：</p> <ul> <li> <p>两个集合的交集</p> </li> </ul> </li> </ul> <pre><code class="language-java">    @Test     public void a17() {         List&lt;User&gt; list = new ArrayList&lt;&gt;();         list.add(new User("张三", 12, "南京"));         list.add(new User("李四", 13, "北京"));         list.add(new User("王五", 14, "苏州"));         list.add(new User("王五", 17, "苏州"));         List&lt;User&gt; userList = new ArrayList&lt;&gt;();         userList.add(new User("李四", 13, "北京"));         userList.add(new User("王五", 20, "广州"));         // 获取两个集合中有相同名字或者年龄相同的，只要满足其中一个条件即可，只会返回list集合里面的元素，有先后顺序返回         List&lt;User&gt; users1 = list.stream()                 .filter(a -&gt; userList.stream().anyMatch(b -&gt; a.getName().equals(b.getName()) || a.getAge() == b.getAge()))                 .collect(Collectors.toList());         // 获取两个集合中相同名字并且年龄相同的，必须同时满足两个条件         List&lt;User&gt; users2 = list.stream()                 .filter(a -&gt; userList.stream().anyMatch(b -&gt; a.getName().equals(b.getName()) &amp;&amp; a.getAge() == b.getAge()))                 .collect(Collectors.toList());         users1.forEach(item -&gt; {             System.out.println(item.getName() + item.getAge() + item.getEmailAddress());         });         /** 第一种结果展示：          * 李四13北京          * 王五14苏州          * 王五17苏州          */         users2.forEach(item -&gt; {             System.out.println(item.getName() + item.getAge() + item.getEmailAddress());         });         /** 第二种结果展示：          * 李四13北京          */     }   @Test public void a15() {         Stream&lt;String&gt; stream = Stream.of("ac", "bcddddd", "bd");         // 判断stream中其中任何一个元素中只要有包含b字符串或者l字符串就返回true         boolean isMatch = stream.anyMatch(str -&gt; str.contains("b") || str.contains("l"));         System.out.println(isMatch);  // true }</code></pre> </h1> <p>判断数据列表中全部元素都符合设置的predicate条件，如果是就返回true，否则返回false，流为空时总是返回true。</p> <ul> <li>接口定义： <ul> <li> <p>boolean allMatch(Predicate&lt;? super T&gt; predicate);</p> </li> </ul> </li> <li>方法描述： <ul> <li> <p>在allMatch 接口定义中是接收 Predicate 类型参数，在Lamdba表达式中 Predicate&lt;T&gt; 是接收一个T类型参数，然后经过逻辑验证返回布尔值结果。这里allMatch表示，判断的条件里，全部元素符合条件，就返回true值。</p> </li> </ul> </li> <li> <p>适用场景：</p> <ul> <li> <p>基本类型的集合，但不适合于对象集合（我自己的理解）</p> </li> <li> <p>allMatch里面不适合写 &amp;&amp; ，只适合写 ||，如果写&amp;&amp;，编译器会自动报黄色波浪线</p> </li> </ul> </li> </ul> <pre><code class="language-java">@Test public void a18() {         List&lt;String&gt; typeList1 = Arrays.asList("1", "2");         List&lt;String&gt; typeList2 = Arrays.asList("1", "2", "3", "4");         // 集合列表中全部元素必须在allMatch里面的那些字符串，只要全部元素中有任意一个不同的元素在AllMatch中就返回false         boolean isMatch1 = typeList1.stream().allMatch(a -&gt; a.equals("1") || a.equals("2") || a.equals("3"));         boolean isMatch2 = typeList2.stream().allMatch(a -&gt; a.equals("1") || a.equals("2") || a.equals("3"));         System.out.println(isMatch1);   // true         System.out.println(isMatch2);   // false }   @Test public void a16() {         Stream&lt;String&gt; stream = Stream.of("abc", "abc", "bcd");         // 判断stream中全部所有元素必须全部包含b字符串和c字符串就返回true，如果有一个元素不包含这两个字符串就返回false         boolean isMatch = stream.allMatch(str -&gt; str.contains("b") &amp;&amp; str.contains("c"));         System.out.println(isMatch);  // true }</code></pre> </h1> <p>判断数据列表中全部元素都不符合设置的predicate条件，如果是就返回true，否则返回false，流为空时总是返回true。</p> <ul> <li>接口定义： <ul> <li> <p>boolean noneMatch(Predicate&lt;? super T&gt; predicate);</p> </li> </ul> </li> <li>方法描述： <ul> <li> <p>在noneMatch接口定义中是接收 Predicate 类型参数，在Lamdba表达式中 Predicate&lt;T&gt; 是接收一个T类型参数，然后经过逻辑验证返回布尔值结果。这里noneMatch表示与allMatch相反，判断的条件里的元素，所有的元素都不符合，就返回true值。</p> </li> </ul> </li> <li> <p>适用场景：</p> <ul> <li> <p>两个集合的差集 （本人只想到这么做，如果有更简洁的可以告诉我怎么写，感谢0.0）</p> </li> </ul> </li> </ul> <pre><code class="language-java">@Test public void a17() {         List&lt;User&gt; list = new ArrayList&lt;&gt;();         list.add(new User("张三", 12, "南京"));         list.add(new User("李四", 13, "北京"));         list.add(new User("王五", 14, "苏州"));         list.add(new User("王五", 17, "苏州"));         List&lt;User&gt; userList = new ArrayList&lt;&gt;();         userList.add(new User("李四", 13, "北京"));         userList.add(new User("王五", 20, "广州"));         // 获取list集合和userList集合过滤掉两者集合中名字和年龄相同的数据后，只返回list集合的数据         List&lt;User&gt; users3 = list.stream()                 .filter(a -&gt; userList.stream().noneMatch(b -&gt; a.getName().equals(b.getName()) &amp;&amp; a.getAge() == b.getAge()))                 .collect(Collectors.toList());         // 获取userlist集合和list集合过滤掉两者集合中名字和年龄相同的数据后，只返回userList集合的数据         List&lt;User&gt; users4 = userList.stream()                 .filter(a -&gt; list.stream().noneMatch(b -&gt; a.getName().equals(b.getName()) &amp;&amp; a.getAge()==b.getAge()))                 .collect(Collectors.toList());         // 获取list和userList集合之间的差集，将上面两者集合合并，就是两个集合的差集         List&lt;User&gt; arrayList = new ArrayList&lt;&gt;();         arrayList.addAll(users3);         arrayList.addAll(users4);         arrayList.forEach(item -&gt; {             System.out.println(item.getName() + item.getAge() + item.getEmailAddress());         });         /**  两者集合之间的差集          * 张三12南京          * 王五14苏州          * 王五17苏州          * 王五20广州          */         System.out.println("-------------------");         users3.forEach(item -&gt; {             System.out.println(item.getName() + item.getAge() + item.getEmailAddress());         });         /**  只返回list集合中过滤掉之后的元素集合          * 张三12南京          * 王五14苏州          * 王五17苏州          */         System.out.println("-------------------");         users4.forEach(item -&gt; {             System.out.println(item.getName() + item.getAge() + item.getEmailAddress());         });         /**  只返回userList集合中过滤掉之后的元素集合          * 王五20广州          */ }  @Test public void a19() {         List&lt;String&gt; typeList1 = Arrays.asList("1", "2");         List&lt;String&gt; typeList2 = Arrays.asList("1", "2", "3", "4");         // 集合列表中全部元素只要都不在noneMatch里面的判断中，就返回true，集合列表中任何元素中只要有一个在noneMatch的判断中就返回false         boolean isMatch1 = typeList1.stream().noneMatch(a -&gt; a.equals("3") || a.equals("4"));         boolean isMatch2 = typeList2.stream().noneMatch(a -&gt; a.equals("1") || a.equals("2") || a.equals("3"));         System.out.println(isMatch1);   // true         System.out.println(isMatch2);   // false }  /** noneMatch */ @Test public void a20() {         Stream&lt;String&gt; stream = Stream.of("dddd", "ee", "qqq", "bcfff");         // 判断 stream 中所有的元素都不是以 a 开头，就返回true，如果所有的元素中只要其中一个元素是以a开头的，就返回false         boolean isMatch = stream.noneMatch(str-&gt;str.startsWith("a"));         System.out.println(isMatch);  // true }</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-64367.htm">网页盒子水平布局方式</a></p>
+                                        <p>下一个：<a href="/news/article-64986.htm">上海宠物领养救助基地（上海宠物领养救助基地有哪些）</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-23681.htm" title="上海宠物美容师工资多少（上海宠物美容师工资多少一个月）">上海宠物美容师工资多少（上海宠物美容师工资多少一个月）</a></li>
+                        <li class="py-2"><a href="/news/article-42820.htm" title="聊一聊Vue3.2中setup语法糖+volar">聊一聊Vue3.2中setup语法糖+volar</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-20-free-high-speed-nodes.htm" title="1月20日→18.6M/S|2025年最新免费节点Free QuantumultX订阅链接地址">1月20日→18.6M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-51845.htm" title="动物疫苗公司招聘信息最新 动物疫苗公司招聘信息最新消息">动物疫苗公司招聘信息最新 动物疫苗公司招聘信息最新消息</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-quantumult-x-github.htm" title="11月7日→20M/S|2024年最新免费节点Free QuantumultX订阅链接地址">11月7日→20M/S|2024年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-quantumult-x-node-github.htm" title="1月15日→22.7M/S|2025年最新免费节点Free QuantumultX订阅链接地址">1月15日→22.7M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-29750.htm" title="兽用疫苗会不会传染人（兽用疫苗前景）">兽用疫苗会不会传染人（兽用疫苗前景）</a></li>
+                        <li class="py-2"><a href="/news/article-61952.htm" title="给猫打狂犬疫苗去哪里（给猫打狂犬疫苗在哪个部位打）">给猫打狂犬疫苗去哪里（给猫打狂犬疫苗在哪个部位打）</a></li>
+                        <li class="py-2"><a href="/news/article-60774.htm" title="宠物粮生产配方有哪些（宠物粮是什么生产的）">宠物粮生产配方有哪些（宠物粮是什么生产的）</a></li>
+                        <li class="py-2"><a href="/news/article-37384.htm" title="农大立德动物医院怎么样啊 农大立德动物医院怎么样啊多少钱">农大立德动物医院怎么样啊 农大立德动物医院怎么样啊多少钱</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                </div><!-- /.about-info -->
+            </div>
+        </section> <!-- /#about -->
+        <!-- end: about us section-->
+                <!-- start: footer -->
+        <footer class="text-uppercase">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Free QuantumultX节点订阅官网</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end: footer -->
+        <!--  Necessary scripts  -->
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/smooth-scroll.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/owl.carousel.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/contact.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/script.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>
