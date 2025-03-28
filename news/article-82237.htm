@@ -1,0 +1,214 @@
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freequantumultx.github.io/news/article-82237.htm" />
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Java实现简易购物系统_java</title>
+        <meta name="description" content="本文实例为大家分享了Java实现简易购物系统的具体代码，供大家参考，具体内容如下 用基本语句去实现一个购物系统  package cn.ybk;     import java.util.Scanne" />
+        <link rel="icon" href="/assets/website/img/freequantumultx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free QuantumultX节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freequantumultx.github.io/news/article-82237.htm" />
+    <meta property="og:site_name" content="Free QuantumultX节点订阅官网" />
+    <meta property="og:title" content="Java实现简易购物系统_java" />
+    <meta property="og:image" content="https://freequantumultx.github.io/uploads/20240905-1/8c93d4c51c418db7b82e24d541809067.webp" />
+        <meta property="og:release_date" content="2025-03-27T08:12:34" />
+    <meta property="og:updated_time" content="2025-03-27T08:12:34" />
+        <meta property="og:description" content="本文实例为大家分享了Java实现简易购物系统的具体代码，供大家参考，具体内容如下 用基本语句去实现一个购物系统  package cn.ybk;     import java.util.Scanne" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java实现简易购物系统_java">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LX9T7GC1HS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LX9T7GC1HS');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="singleBlogPage">
+            <!-- site-navigation start -->
+    <nav id="mainNavigation" class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar logo -->
+                <div class="navbar-brand">
+                    <a href="/">
+                                        <span>Free QuantumultX</span>
+                                        </a>
+                </div>
+                <!-- navbar logo -->
+            </div><!-- /.navbar-header -->
+            <!-- nav links -->
+            <div class="collapse navbar-collapse" id="main-nav-collapse">
+                <ul class="nav navbar-nav navbar-right text-uppercase">
+                                        <li>
+                        <a href="/">首页</a>
+                    </li>
+                                        <li>
+                        <a href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li>
+                        <a href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li>
+                        <a href="/client.htm">客户端</a>
+                    </li>
+                                        <li>
+                        <a href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div><!-- nav links -->
+        </div><!-- /.container -->
+    </nav>
+        <!-- header begin -->
+        <header class="page-head">
+            <div class="header-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ol class="breadcrumb">
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/news/">新闻资讯</a></li>
+                                <li class="active">正文</li>
+                            </ol> <!-- end of /.breadcrumb -->
+                        </div>
+                    </div>
+                </div> <!-- /.container -->
+            </div> <!-- /.header-wrapper -->
+        </header> <!-- /.page-head -->
+        <!-- header end -->
+        <!-- start: about us section -->
+        <section id="about">
+            <div class="container">
+                <div class="about-info">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h1 class="mb-2">Java实现简易购物系统_java</h1>
+                                            <input type="hidden" id="share-website-info" data-name="QuantumultX Node(圈X)官方节点站" data-url="https://quantumultxnode.github.io">
+                  				  				  				<p>本文实例为大家分享了Java实现简易购物系统的具体代码，供大家参考，具体内容如下</p> <p>用基本语句去实现一个购物系统</p> <div class="ay1code"> <pre class="brush:java;">package cn.ybk;     import java.util.Scanner;     /**   * 简易的购物系统   *   * 1.主界面（选择）   * 2.用户登录界面（验证用户信息）   * 3.登录成功进入购物界面（商品选择）   *   */  public class ShoppingSystem {         public static void main(String[] args) {          String choose3;          do {              Scanner input = new Scanner(System.in);              //1.主界面              System.out.println("======================");              System.out.println("========1.登录========");              System.out.println("========2.退出========");              System.out.println("======================");              System.out.println("请输入选项（1   or  2）");              int choose1 = input.nextInt();              if (choose1 == 1) {                  //进入登录界面                  System.out.println("======请登录======");                  System.out.println("请输入用户名：");//输入用户名                  String username = input.next();                  System.out.println("请输入密码：");//输入密码                  String password = input.next();                        //登录成功                  if ("yangbenkun".equals(username) &amp;&amp; "123456".equals(password)) {                      System.out.println("欢迎用户：" + username);                      System.out.println("-&gt;进入购物系统");                      //打印商品菜单                      System.out.println("商品编号\t商品名称\t\t\t商品单价");                      System.out.println("1\t\t\tJava基础语法\t\t35.4");                      System.out.println("2\t\t\tJava面向对象\t\t87");                      System.out.println("3\t\t\tJava实战项目\t\t76");                         double money1=0;//1的购物车单价                      double money2 = 0;//2的购物车单价                      double money3 =0;//3的购物车单价                      double money = 0;//总金额                            //do...while循环实现先多次购买                      String choose2;                      do {                          System.out.println("请输入你要购买的商品编号：");                          int no = input.nextInt();                          if(no == 1){                              System.out.println("请输入你要购买的数量：");                              int sum1 = input.nextInt();                              money1 = 35.4;                              money1 *= sum1;                              System.out.println("1的金额为："+money1);                             }else if(no == 2){                              System.out.println("请输入你要购买的数量：");                              int sum2 = input.nextInt();                              money2 = 87.0;                              money2 *= sum2;                              System.out.println("2的金额为："+money2);                             }else if(no == 3){                              System.out.println("请输入你要购买的数量：");                              int sum3 = input.nextInt();                              money3 = 76.0;                              money3 *= sum3;                              System.out.println("3的金额为："+money3);                          }else {                              System.out.println("选择有误请重新输入");                          }                          //计算总体金额                           money = money1 + money2 + money3;                          System.out.println("总金额为："+money);                          System.out.println("是否继续购买(n/y)");                           choose2 = input.next();                      }while("y".equals(choose2));                             if(money&gt;=300){                          System.out.println("总金额已经满300打七五折");                          money*=0.75;                      }                      int i;//控制循环的循环变量的                      do {                          System.out.println("请输入你的余额");                          double usermoney = input.nextDouble();                          i = 1;                          if (usermoney&lt;money){                              System.out.println("你的余额不足请");                              i--;                          }else{                              usermoney-=money;                              System.out.println("找零"+usermoney);                      }                      }while (i!=1);                      //z最后一项商城菜单                      System.out.println("========================");                      System.out.println("========谢谢惠顾========");                      System.out.println("======输入0退出系统=====");                      System.out.println("========================");                      int j = input.nextInt();                       if (j==0){                           break;                       }                        } else {//登录失败                      System.out.println("用户名或密码有误，已退出");                      return;                  }              } else if (choose1 == 2) {                 } else {                  System.out.println("输入有误，程序自动退出");                  break;              }              System.out.println("是否要退出系统：(n/y)");               choose3 = input.next();          }while("n".equals(choose3));          System.out.println("欢迎您下次光临");         }  }</pre> </div> <p>这里只列举了些许商品和一些其他的东西，可以继续改进完善把功能做的更加详细。</p> <p>程序运行截图：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220504/ca17772a3fab67f1f39e6c4e9d2d03de.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220504/5cf391f6c3339f4d832e4922ad8402e2.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220504/3ee4600f211184dec3537e773308f7ed.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220504/6836ba2013fe8c6d27f16bf6e6264b5b.jpg"></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-82236.htm">JavaScript使用AND运算符合并布尔数组方法详解</a></p>
+                                        <p>下一个：<a href="/news/article-82949.htm">MyBatis &#8211; typeAliases不能正确解析问题的处理方法</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-64365.htm" title="对象和封装总结">对象和封装总结</a></li>
+                        <li class="py-2"><a href="/news/article-68766.htm" title="vue vue-router ElementUI导航栏重复点菜单报错问题">vue vue-router ElementUI导航栏重复点菜单报错问题</a></li>
+                        <li class="py-2"><a href="/news/article-60775.htm" title="一件代发货源app1688（一件代发货源app）">一件代发货源app1688（一件代发货源app）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-27-free-node-subscribe.htm" title="2月27日→22.3M/S|2025年最新免费节点Free QuantumultX订阅链接地址">2月27日→22.3M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-43816.htm" title="转载：Hadoop相关知识整理系列之一：HBase基本架构及原理">转载：Hadoop相关知识整理系列之一：HBase基本架构及原理</a></li>
+                        <li class="py-2"><a href="/news/article-69404.htm" title="JAVA8 | 日期时间API（LocalDate、LocalDateTime、LocalTime）">JAVA8 | 日期时间API（LocalDate、LocalDateTime、LocalTime）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-free-high-speed-nodes.htm" title="1月5日→21.7M/S|2025年最新免费节点Free QuantumultX订阅链接地址">1月5日→21.7M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-71370.htm" title="宠物粮食加工厂加盟条件及费用表（宠物粮食加工厂加盟条件及费用表格）">宠物粮食加工厂加盟条件及费用表（宠物粮食加工厂加盟条件及费用表格）</a></li>
+                        <li class="py-2"><a href="/news/article-55636.htm" title="开宠物用品店的优势和劣势有哪些方面（开宠物用品店需要具备哪些条件）">开宠物用品店的优势和劣势有哪些方面（开宠物用品店需要具备哪些条件）</a></li>
+                        <li class="py-2"><a href="/news/article-62553.htm" title="三国杀里面限定技能用几次（三国杀中限定技可以用几次）">三国杀里面限定技能用几次（三国杀中限定技可以用几次）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                </div><!-- /.about-info -->
+            </div>
+        </section> <!-- /#about -->
+        <!-- end: about us section-->
+                <!-- start: footer -->
+        <footer class="text-uppercase">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Free QuantumultX节点订阅官网</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end: footer -->
+        <!--  Necessary scripts  -->
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/smooth-scroll.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/owl.carousel.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/contact.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/script.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>
