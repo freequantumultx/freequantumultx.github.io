@@ -1,0 +1,213 @@
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freequantumultx.github.io/news/article-91276.htm" />
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>maven项目打包成jar/war包</title>
+        <meta name="description" content="maven构建jar/war包的执行过程：（跟我们porm.xml中&lt;packaging&gt;war&lt;/packaging&gt;有关，是war就打成war包，是jar就打成jar包） " />
+        <link rel="icon" href="/assets/website/img/freequantumultx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free QuantumultX节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freequantumultx.github.io/news/article-91276.htm" />
+    <meta property="og:site_name" content="Free QuantumultX节点订阅官网" />
+    <meta property="og:title" content="maven项目打包成jar/war包" />
+    <meta property="og:image" content="https://freequantumultx.github.io/uploads/20240905-1/9ad87ba4c5f1bbf3d4d65fe359cc7c36.webp" />
+        <meta property="og:release_date" content="2025-04-08T09:55:33" />
+    <meta property="og:updated_time" content="2025-04-08T09:55:33" />
+        <meta property="og:description" content="maven构建jar/war包的执行过程：（跟我们porm.xml中&lt;packaging&gt;war&lt;/packaging&gt;有关，是war就打成war包，是jar就打成jar包） " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="maven项目打包成jar/war包">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LX9T7GC1HS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LX9T7GC1HS');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="singleBlogPage">
+            <!-- site-navigation start -->
+    <nav id="mainNavigation" class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar logo -->
+                <div class="navbar-brand">
+                    <a href="/">
+                                        <span>Free QuantumultX</span>
+                                        </a>
+                </div>
+                <!-- navbar logo -->
+            </div><!-- /.navbar-header -->
+            <!-- nav links -->
+            <div class="collapse navbar-collapse" id="main-nav-collapse">
+                <ul class="nav navbar-nav navbar-right text-uppercase">
+                                        <li>
+                        <a href="/">首页</a>
+                    </li>
+                                        <li>
+                        <a href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li>
+                        <a href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li>
+                        <a href="/client.htm">客户端</a>
+                    </li>
+                                        <li>
+                        <a href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div><!-- nav links -->
+        </div><!-- /.container -->
+    </nav>
+        <!-- header begin -->
+        <header class="page-head">
+            <div class="header-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ol class="breadcrumb">
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/news/">新闻资讯</a></li>
+                                <li class="active">正文</li>
+                            </ol> <!-- end of /.breadcrumb -->
+                        </div>
+                    </div>
+                </div> <!-- /.container -->
+            </div> <!-- /.header-wrapper -->
+        </header> <!-- /.page-head -->
+        <!-- header end -->
+        <!-- start: about us section -->
+        <section id="about">
+            <div class="container">
+                <div class="about-info">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h1 class="mb-2">maven项目打包成jar/war包</h1>
+                                            <input type="hidden" id="share-website-info" data-name="QuantumultX Node(圈X)官方节点站" data-url="https://quantumultxnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>maven构建jar/war包的执行过程：（跟我们porm.xml中&lt;packaging&gt;war&lt;/packaging&gt;有关，是war就打成war包，是jar就打成jar包）<br /> 1、将src/main/resorces的配置文件复制到target文件夹对应的构建目录的地方<br /> 2、将src/main/java中的Java文件编译成class文件存放在target文件夹相应的位置<br /> 3、将src/test/resorces的配置文件复制到target文件夹相应的地方<br /> 4、将src/test/java中的Java文件编译成class文件存放在target文件夹相应的位置<br /> 5、进行单元测试，凡是有@test的都要开启单元测试<br /> 6、打成jar包/war包（打成的jar包或者war包在target文件夹中）</p> <p>一、maven项目打成jar包或者war包第一种方式：（跳过测试需要在porm.xml中引入相应的跳过测试jar包）<br /> &nbsp;在eclipse中项目上单击右键选择 run as/debug as --&gt;maven install</p> <p>二、要将maven项目打成jar包或者是war包的第二种方式：（跳过测试）<br /> 1、在dos窗体中，也就是按下windows+r，输入cmd进入控制台,<br /> 2、然后在控制台中cd进入到你需要打成jar/war包的项目中pom.xml对应的文件夹中，<br /> 3、执行下面这条语句：mvn clean install -dskip.test=true</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-90169.htm">动物疫苗注射注意事项及禁忌有哪些内容（动物疫苗使用时的注意事项）</a></p>
+                                        <p>下一个：<a href="/news/article-91277.htm">仓鼠宠物医院太原（太原仓鼠吧）</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-76718.htm" title="C语言操作符详解">C语言操作符详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-17-today-quantumult-x-node.htm" title="3月17日→18.3M/S|2025年最新免费节点Free QuantumultX订阅链接地址">3月17日→18.3M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-91680.htm" title="鹤壁卖狗（鹤壁新区狗市）">鹤壁卖狗（鹤壁新区狗市）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-5-latest-quantumult-x-node.htm" title="4月5日→19.4M/S|2025年最新免费节点Free QuantumultX订阅链接地址">4月5日→19.4M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-21-quantumult-x-node-windows.htm" title="3月21日→18.4M/S|2025年最新免费节点Free QuantumultX订阅链接地址">3月21日→18.4M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-78777.htm" title="哪个牌子的硒片美容养颜最好用(哪个牌子的硒片美容养颜最好呢)">哪个牌子的硒片美容养颜最好用(哪个牌子的硒片美容养颜最好呢)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-today-quantumult-x-node.htm" title="3月13日→21.5M/S|2025年最新免费节点Free QuantumultX订阅链接地址">3月13日→21.5M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-10-today-quantumult-x-node.htm" title="3月10日→20.7M/S|2025年最新免费节点Free QuantumultX订阅链接地址">3月10日→20.7M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-81528.htm" title="动物疫苗企业名单公布最新 动物疫苗企业名单公布最新消息">动物疫苗企业名单公布最新 动物疫苗企业名单公布最新消息</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-16-free-subscribe-node.htm" title="3月16日→19.3M/S|2025年最新免费节点Free QuantumultX订阅链接地址">3月16日→19.3M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                </div><!-- /.about-info -->
+            </div>
+        </section> <!-- /#about -->
+        <!-- end: about us section-->
+                <!-- start: footer -->
+        <footer class="text-uppercase">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p>
+                            <a href="/">Free QuantumultX节点订阅官网</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end: footer -->
+        <!--  Necessary scripts  -->
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/smooth-scroll.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/owl.carousel.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/contact.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/script.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>
