@@ -1,0 +1,213 @@
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freequantumultx.github.io/news/article-97634.htm" />
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>修改 Docker 的默认存储路径</title>
+        <meta name="description" content="Docker 默认安装的情况下，会使用 /var/lib/docker/ 目录作为存储目录，用以存放拉取的镜像和创建的容器等。不过由于此目录一般都位于系统盘，遇到系统盘比较小，而镜像和容器多了后就容易" />
+        <link rel="icon" href="/assets/website/img/freequantumultx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free QuantumultX节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freequantumultx.github.io/news/article-97634.htm" />
+    <meta property="og:site_name" content="Free QuantumultX节点订阅官网" />
+    <meta property="og:title" content="修改 Docker 的默认存储路径" />
+    <meta property="og:image" content="https://freequantumultx.github.io/uploads/20240905-1/9ad87ba4c5f1bbf3d4d65fe359cc7c36.webp" />
+        <meta property="og:release_date" content="2025-04-17T08:59:58" />
+    <meta property="og:updated_time" content="2025-04-17T08:59:58" />
+        <meta property="og:description" content="Docker 默认安装的情况下，会使用 /var/lib/docker/ 目录作为存储目录，用以存放拉取的镜像和创建的容器等。不过由于此目录一般都位于系统盘，遇到系统盘比较小，而镜像和容器多了后就容易" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="修改 Docker 的默认存储路径">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LX9T7GC1HS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LX9T7GC1HS');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="singleBlogPage">
+            <!-- site-navigation start -->
+    <nav id="mainNavigation" class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar logo -->
+                <div class="navbar-brand">
+                    <a href="/">
+                                        <span>Free QuantumultX</span>
+                                        </a>
+                </div>
+                <!-- navbar logo -->
+            </div><!-- /.navbar-header -->
+            <!-- nav links -->
+            <div class="collapse navbar-collapse" id="main-nav-collapse">
+                <ul class="nav navbar-nav navbar-right text-uppercase">
+                                        <li>
+                        <a href="/">首页</a>
+                    </li>
+                                        <li>
+                        <a href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li>
+                        <a href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li>
+                        <a href="/client.htm">客户端</a>
+                    </li>
+                                        <li>
+                        <a href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div><!-- nav links -->
+        </div><!-- /.container -->
+    </nav>
+        <!-- header begin -->
+        <header class="page-head">
+            <div class="header-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ol class="breadcrumb">
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/news/">新闻资讯</a></li>
+                                <li class="active">正文</li>
+                            </ol> <!-- end of /.breadcrumb -->
+                        </div>
+                    </div>
+                </div> <!-- /.container -->
+            </div> <!-- /.header-wrapper -->
+        </header> <!-- /.page-head -->
+        <!-- header end -->
+        <!-- start: about us section -->
+        <section id="about">
+            <div class="container">
+                <div class="about-info">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h1 class="mb-2">修改 Docker 的默认存储路径</h1>
+                                            <input type="hidden" id="share-website-info" data-name="QuantumultX Node(圈X)官方节点站" data-url="https://quantumultxnode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p>Docker 默认安装的情况下，会使用 /var/lib/docker/ 目录作为存储目录，用以存放拉取的镜像和创建的容器等。不过由于此目录一般都位于系统盘，遇到系统盘比较小，而镜像和容器多了后就容易尴尬，这里说明一下如何修改 Docker 的存储目录。</p> <p>以我手头的一台 VPS 作为例子，可以看到这台机子本身有两块硬盘，我把数据盘 vdb 挂载到了/www 目录，目标就是将 Docker 存储目录移到/www/docker。</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220604/2a1f7d642c63e1c69f8d7b420d02a772.jpg"></p> <p>输入：</p> <pre><code>docker info</code></pre> <p>可以查看程序信息，红框里就是默认的存储目录：</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220604/4203eabbb88ae9931fe644483001a88c.jpg"></p> <p>最简单粗暴的办法，当然就是直接把数据盘挂载到/var/lib/docker 目录下，不过这样对整体影响太大，其他程序需要使用数据盘时很不方便，所以还是从 Docker 端的修改入手。</p> <p>官方文档的修改办法是编辑 /etc/docker/daemon.json 文件：</p> <pre><code>vi /etc/docker/daemon.json</code></pre> <p>默认情况下这个配置文件是没有的，这里实际也就是新建一个，然后写入以下内容：</p> <pre><code>{   "data-root": "/www/docker" }</code></pre> <p>此文件还涉及默认源的设定，如果设定了国内源，那么实际就是在源地址下方加一行，写成：</p> <pre><code>{   "registry-mirrors": ["http://hub-mirror.c.163.com"],   "data-root": "/www/docker" }</code></pre> <p>保存退出，然后重启 docker 服务：</p> <pre><code>systemctl restart docker</code></pre> <p>再次查看 docker 信息，可以看到目录已经变成了设定的/www/docker:</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220604/454448dfe8bd88e8b59bcf198f83b342.jpg"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-96899.htm">动物疫苗市场销售工作布署会议（动物疫苗销售大客户经理）</a></p>
+                                        <p>下一个：<a href="/news/article-97635.htm">成都哪里有宠物领养中心（成都哪里可以领养宠物）</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-85815.htm" title="动物疫苗企业 动物疫苗企业名单">动物疫苗企业 动物疫苗企业名单</a></li>
+                        <li class="py-2"><a href="/news/article-65611.htm" title="转载：Hadoop相关知识整理系列之一：HBase基本架构及原理">转载：Hadoop相关知识整理系列之一：HBase基本架构及原理</a></li>
+                        <li class="py-2"><a href="/news/article-70713.htm" title="关于CSS样式的优先级问题">关于CSS样式的优先级问题</a></li>
+                        <li class="py-2"><a href="/news/article-68767.htm" title="给动物打疫苗的官方部门有哪些岗位（给动物打疫苗的官方部门有哪些岗位呢）">给动物打疫苗的官方部门有哪些岗位（给动物打疫苗的官方部门有哪些岗位呢）</a></li>
+                        <li class="py-2"><a href="/news/article-76718.htm" title="C语言操作符详解">C语言操作符详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-6-today-quantumult-x-node.htm" title="4月6日→19.9M/S|2025年最新免费节点Free QuantumultX订阅链接地址">4月6日→19.9M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-81528.htm" title="动物疫苗企业名单公布最新 动物疫苗企业名单公布最新消息">动物疫苗企业名单公布最新 动物疫苗企业名单公布最新消息</a></li>
+                        <li class="py-2"><a href="/news/article-74683.htm" title="青岛想念动物医院电话地址是多少啊（青岛思念餐厅）">青岛想念动物医院电话地址是多少啊（青岛思念餐厅）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-12-free-high-speed-nodes.htm" title="4月12日→18.1M/S|2025年最新免费节点Free QuantumultX订阅链接地址">4月12日→18.1M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-81529.htm" title="领养宠物的概念和特点有哪些（领养宠物的概念和特点有哪些方面）">领养宠物的概念和特点有哪些（领养宠物的概念和特点有哪些方面）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                </div><!-- /.about-info -->
+            </div>
+        </section> <!-- /#about -->
+        <!-- end: about us section-->
+                <!-- start: footer -->
+        <footer class="text-uppercase">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p>
+                            <a href="/">Free QuantumultX节点订阅官网</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end: footer -->
+        <!--  Necessary scripts  -->
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/smooth-scroll.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/owl.carousel.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/contact.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/script.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>
