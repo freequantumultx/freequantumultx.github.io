@@ -1,0 +1,216 @@
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freequantumultx.github.io/news/article-98366.htm" />
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Java观察者模式讲解及代码实现</title>
+        <meta name="description" content="观察者模式又叫做发布-订阅模式，是对象间的一对多的关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新   抽象主题角色（Subject）  也叫抽象目标类，抽象主题知道自己的观" />
+        <link rel="icon" href="/assets/website/img/freequantumultx/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free QuantumultX节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freequantumultx.github.io/news/article-98366.htm" />
+    <meta property="og:site_name" content="Free QuantumultX节点订阅官网" />
+    <meta property="og:title" content="Java观察者模式讲解及代码实现" />
+    <meta property="og:image" content="https://freequantumultx.github.io/uploads/20240905-1/c1ee0db4717b6d3b01c610f8976c5cc5.webp" />
+        <meta property="og:release_date" content="2025-04-18T09:36:22" />
+    <meta property="og:updated_time" content="2025-04-18T09:36:22" />
+        <meta property="og:description" content="观察者模式又叫做发布-订阅模式，是对象间的一对多的关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新   抽象主题角色（Subject）  也叫抽象目标类，抽象主题知道自己的观" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java观察者模式讲解及代码实现">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/animate.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/owl.theme.css">
+    <link rel="stylesheet" href="/assets/website/css/freequantumultx/style.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LX9T7GC1HS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LX9T7GC1HS');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <div id="singleBlogPage">
+            <!-- site-navigation start -->
+    <nav id="mainNavigation" class="navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar logo -->
+                <div class="navbar-brand">
+                    <a href="/">
+                                        <span>Free QuantumultX</span>
+                                        </a>
+                </div>
+                <!-- navbar logo -->
+            </div><!-- /.navbar-header -->
+            <!-- nav links -->
+            <div class="collapse navbar-collapse" id="main-nav-collapse">
+                <ul class="nav navbar-nav navbar-right text-uppercase">
+                                        <li>
+                        <a href="/">首页</a>
+                    </li>
+                                        <li>
+                        <a href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li>
+                        <a href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li>
+                        <a href="/client.htm">客户端</a>
+                    </li>
+                                        <li>
+                        <a href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div><!-- nav links -->
+        </div><!-- /.container -->
+    </nav>
+        <!-- header begin -->
+        <header class="page-head">
+            <div class="header-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ol class="breadcrumb">
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/news/">新闻资讯</a></li>
+                                <li class="active">正文</li>
+                            </ol> <!-- end of /.breadcrumb -->
+                        </div>
+                    </div>
+                </div> <!-- /.container -->
+            </div> <!-- /.header-wrapper -->
+        </header> <!-- /.page-head -->
+        <!-- header end -->
+        <!-- start: about us section -->
+        <section id="about">
+            <div class="container">
+                <div class="about-info">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h1 class="mb-2">Java观察者模式讲解及代码实现</h1>
+                                            <input type="hidden" id="share-website-info" data-name="QuantumultX Node(圈X)官方节点站" data-url="https://quantumultxnode.github.io">
+                <div class="xcblog-blog-detail">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> </h1> <p>观察者模式又叫做<strong>发布-订阅模式</strong>，是对象间的<strong>一对多</strong>的关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新</p> </h1> <ul> <li><strong>抽象主题角色（Subject）</strong></li> </ul> <p>也叫抽象目标类，抽象主题知道自己的观察者有哪些，提供<strong>删除和新增观察者的方法以及通知观察者的抽象方法</strong>，由抽象类或接口实现</p> <ul> <li><strong>抽象观察者角色（Observer）</strong></li> </ul> <p>包含了<strong>一个更新的抽象方法</strong>，当收到具体主题的更新通知后调用，由抽象类或接口实现</p> <ul> <li><strong>具体主题角色（Concrete Subject）</strong></li> </ul> <p>也叫具体目标类，实现抽象目标类的通知方法，当<strong>具体主题发生改变时通知所有订阅自己的观察者</strong></p> <ul> <li><strong>具体观察者角色（Concrete Observer）</strong></li> </ul> <p>实现抽象观察者角色的抽象方法，<strong>收到主题更改通知后更改自身状态</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230217/bc0a6e35a2c1cb875fcf3b872735e045.jpg" alt="Java观察者模式讲解及代码实现"></p> </h1> <ul> <li><strong>抽象观察者Observer接口</strong></li> </ul> <p>包含一个观察者接收通知改变自身状态方法</p> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Observer</span> <span class="token punctuation">{<!-- --></span> 	<span class="token comment">//收到通知，改变自身状态</span>     <span class="token keyword">void</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <ul> <li><strong>具体观察者ObserverOne和ObserverTwo</strong></li> </ul> <p>实现Observer接口中的update方法</p> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ObserverOne</span> <span class="token keyword">implements</span> <span class="token class-name">Observer</span><span class="token punctuation">{<!-- --></span>     <span class="token annotation punctuation">@Override</span>     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"第一个观察者收到通知，状态更新了"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ObserverTwo</span> <span class="token keyword">implements</span> <span class="token class-name">Observer</span> <span class="token punctuation">{<!-- --></span>     <span class="token annotation punctuation">@Override</span>     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"第二个观察者收到通知，状态更新了"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <ul> <li><strong>Subject接口</strong></li> </ul> <p>包含添加，删除，通知观察者方法，由抽象目标类实现，还有一个自身操作的方法，由具体目标类实现</p> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Subject</span> <span class="token punctuation">{<!-- --></span>     <span class="token comment">//添加观察者</span>     <span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span>Observer observer<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">//删除观察者</span>     <span class="token keyword">void</span> <span class="token function">remove</span><span class="token punctuation">(</span>Observer observer<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">//通知所有观察者</span>     <span class="token keyword">void</span> <span class="token function">notifyObservers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">//自身操作</span>     <span class="token keyword">void</span> <span class="token function">operation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <ul> <li><strong>抽象目标类AbstractSubject</strong></li> </ul> <p>抽象类，因为观察者数量不固定，所以使用<strong>Vector动态数组</strong>存储观察者，实现Subject接口中的add，remove，notifyObservers方法，<strong>operation方法由具体目标类实现</strong></p> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">AbstractSubject</span> <span class="token keyword">implements</span> <span class="token class-name">Subject</span><span class="token punctuation">{<!-- --></span>     Vector<span class="token generics function"><span class="token punctuation">&lt;</span>Observer<span class="token punctuation">&gt;</span></span> vector <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vector</span><span class="token generics function"><span class="token punctuation">&lt;</span>Observer<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token annotation punctuation">@Override</span>     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span>Observer observer<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         vector<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>observer<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>      <span class="token annotation punctuation">@Override</span>     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">remove</span><span class="token punctuation">(</span>Observer observer<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         vector<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>observer<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>      <span class="token annotation punctuation">@Override</span>     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">notifyObservers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token keyword">for</span> <span class="token punctuation">(</span>Observer observer <span class="token operator">:</span> vector<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>             observer<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token punctuation">}</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <ul> <li><strong>具体目标类MySubject</strong></li> </ul> <p>继承AbstractSubject类，实现operation方法，并<strong>在operation方法中调用notifyObservers方法</strong>以达到自身状态改变后通知观察者的效果</p> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MySubject</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractSubject</span><span class="token punctuation">{<!-- --></span>     <span class="token annotation punctuation">@Override</span>     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">operation</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"具体目标状态改变"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"正在通知观察者。。。"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token function">notifyObservers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"通知完毕！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <ul> <li><strong>测试类Test</strong></li> </ul> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Test</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         MySubject mySubject <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MySubject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         mySubject<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ObserverOne</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         mySubject<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ObserverTwo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         mySubject<span class="token punctuation">.</span><span class="token function">operation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230217/bfd2cdedc488e39b7a2441d3bc1f66fa.jpg" alt="Java观察者模式讲解及代码实现"></p> </h1> <ul> <li><strong>观察者模式主要解决了什么问题</strong></li> </ul> <p>在低耦合的条件下，一个对象状态发生改变，其他对象会收到通知</p> <ul> <li><strong>观察者模式什么时候使用</strong></li> </ul> <p>一个对象状态改变，所有有依赖关系的对象都会收到广播通知</p> <ul> <li><strong>观察者模式的优点</strong></li> </ul> <p>观察者和目标是抽象耦合的，低耦合，是一套触发机制</p> <ul> <li><strong>观察者模式的缺点</strong></li> </ul> <p>①如果一个目标中依赖的直接观察者和间接观察者有很多的话，通知所有观察者需要花费很多时间<br /> ②如果观察者和被观察者之间有循环依赖的话，可能会出现循环调用，导致系统崩溃<br /> ③观察者无法知道目标状态是如何变化的，只能知道目标状态发生了改变</p> <ul> <li><strong>观察者模式的注意事项</strong></li> </ul> <p>①JAVA中已经有了观察者模式的支持类，可以直接使用<br /> ②避免循环调用<br /> ③如果顺序执行观察者的更新方法，某一观察者错误会导致系统卡住，一般采用异步方式。</p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-97635.htm">成都哪里有宠物领养中心（成都哪里可以领养宠物）</a></p>
+                                        <p>下一个：<a href="/news/article-98367.htm">青岛市动物诊疗价目收费表图片（青岛市动物诊疗价目收费表图片大全）</a></p>
+                                    </div>
+                                        </div>
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-7-today-quantumult-x-node.htm" title="4月7日→21.6M/S|2025年最新免费节点Free QuantumultX订阅链接地址">4月7日→21.6M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-84377.htm" title="Goland proto文件 File Watch 自动生成">Goland proto文件 File Watch 自动生成</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-20-quantumult-x-github.htm" title="3月20日→21.7M/S|2025年最新免费节点Free QuantumultX订阅链接地址">3月20日→21.7M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-today-quantumult-x-node.htm" title="4月1日→21.5M/S|2025年最新免费节点Free QuantumultX订阅链接地址">4月1日→21.5M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-69405.htm" title="go web 处理文件上传">go web 处理文件上传</a></li>
+                        <li class="py-2"><a href="/news/article-91680.htm" title="鹤壁卖狗（鹤壁新区狗市）">鹤壁卖狗（鹤壁新区狗市）</a></li>
+                        <li class="py-2"><a href="/news/article-77399.htm" title="numpy和tensor类型更改（增加或减少）参数维度（reshape）">numpy和tensor类型更改（增加或减少）参数维度（reshape）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-5-free-node-subscribe-links.htm" title="3月5日→22.9M/S|2025年最新免费节点Free QuantumultX订阅链接地址">3月5日→22.9M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-81528.htm" title="动物疫苗企业名单公布最新 动物疫苗企业名单公布最新消息">动物疫苗企业名单公布最新 动物疫苗企业名单公布最新消息</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-6-today-quantumult-x-node.htm" title="4月6日→19.9M/S|2025年最新免费节点Free QuantumultX订阅链接地址">4月6日→19.9M/S|2025年最新免费节点Free QuantumultX订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                </div><!-- /.about-info -->
+            </div>
+        </section> <!-- /#about -->
+        <!-- end: about us section-->
+                <!-- start: footer -->
+        <footer class="text-uppercase">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p>
+                            <a href="/">Free QuantumultX节点订阅官网</a> 版权所有
+                            <br />
+                            Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end: footer -->
+        <!--  Necessary scripts  -->
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/smooth-scroll.min.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/owl.carousel.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/contact.js"></script>
+        <script type="text/javascript" src="/assets/website/js/frontend/freequantumultx/script.js"></script>
+        <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+    </div>
+</body>
+
+</html>
